@@ -1,0 +1,156 @@
+{
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "explorer.confirmDelete": false,
+    "zenMode.silentNotifications": false,
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono'",
+    "explorer.confirmDragAndDrop": false,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "[ocaml]": {
+        "editor.defaultFormatter": "ocamllabs.ocaml-platform"
+    },
+    "files.autoSave": "onFocusChange",
+    "codesnap.showWindowControls": false,
+    "codesnap.shutterAction": "copy",
+    "editor.formatOnSave": true,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": false,
+    "workbench.colorCustomizations": {
+        "[Blinds (Default Dark)]": {
+            "editor.selectionBackground": "#264f88",
+            "editor.inactiveSelectionBackground": "#264f38f0",
+            "editor.wordHighlightBackground": "#2e2e2e85",
+            "minimap.selectionHighlight": "#264f78f0",
+            "editorOverviewRuler.border": "#00000000",
+            "editorOverviewRuler.background": "#1f1f1fbb",
+            "sideBar.border": "#2b2b2b",
+            "editorGroupHeader.tabsBorder": "#2b2b2b",
+            "tab.activeBorder": "#1f1f1f",
+            "tab.unfocusedActiveBorder": "#1f1f1f",
+            "statusBar.background": "#007acc",
+            "sideBarSectionHeader.border": "#2b2b2b",
+            "activityBar.foreground": "#40a6ff",
+            "scrollbar.shadow": "#000000e5",
+        }
+    },
+    "editor.stickyScroll.enabled": true,
+    "editor.tokenColorCustomizations": {
+        "[Blinds (Default Dark)]": {
+            "textMateRules": [
+                {
+                    "scope": "constant.numeric",
+                    "settings": {
+                        "foreground": "#9cdcfe"
+                    }
+                },
+                {
+                    "scope": "markup.quote.markdown",
+                    "settings": {
+                        "foreground": "#707070"
+                    }
+                }
+            ],
+            "comments": "#707070"
+        },
+    },
+    "editor.smoothScrolling": true,
+    "settingsSync.ignoredExtensions": [
+        "mathiasfrohlich.kotlin",
+        "icrawl.discord-vscode",
+        "wallabyjs.console-ninja"
+    ],
+    "zenMode.hideLineNumbers": false,
+    "workbench.editor.tabSizing": "shrink",
+    "todo-tree.highlights.defaultHighlight": {
+        "type": "text-and-comment",
+        "rulerLane": "center",
+        "fontWeight": "700",
+        "background": "#000000",
+        "gutterIcon": true
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            // "icon": "check",
+            "foreground": "#0077ff",
+            "rulerColour": "#0077ff"
+        },
+        "FIXME": {
+            "foreground": "#f7f700",
+            "rulerColour": "#f7f700"
+        },
+        "XXX": {
+            "foreground": "#ff0000",
+            "rulerColour": "#ff0000"
+        },
+        "HACK": {
+            "foreground": "#ff0000",
+            "rulerColour": "#ff0000"
+        }
+    },
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX"
+    ],
+    "workbench.colorTheme": "Blinds (Default Dark)",
+    "files.associations": {
+        ".clang-format": "yaml",
+        ".clangd": "yaml"
+    },
+    "C_Cpp.inlayHints.referenceOperator.enabled": true,
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.intelliSenseUpdateDelay": 500,
+    "C_Cpp.inlayHints.parameterNames.hideLeadingUnderscores": false,
+    "editor.quickSuggestions": {
+        "comments": "inline",
+        "strings": "inline"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "codesnap.transparentBackground": true,
+    "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px",
+    "codesnap.backgroundColor": "#abb8c300",
+    "codesnap.showLineNumbers": false,
+    "pdf-preview.default.cursor": "hand",
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.inlayHints.autoDeclarationTypes.showOnLeft": true,
+    "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+    "zenMode.hideStatusBar": false,
+    "codesnap.containerPadding": "0",
+    "editor.cursorBlinking": "smooth",
+    "diffEditor.codeLens": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.eol": "\n",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.enableVisualBell": true,
+    "telemetry.telemetryLevel": "off",
+    "settingsSync.keybindingsPerPla1tform": false,
+    "git.openRepositoryInParentFolders": "always",
+    "window.titleBarStyle": "custom",
+    "settingsSync.keybindingsPerPlatform": false,
+    "editor.rulers": [
+        80
+    ],
+    "C_Cpp.doxygen.generatedStyle": "/**",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "window.customTitleBarVisibility": "windowed",
+    "files.insertFinalNewline": true,
+    "window.density.editorTabHeight": "compact",
+    "zenMode.centerLayout": false,
+    "editor.wordWrap": "on",
+    "zenMode.restore": false,
+    "python.analysis.typeCheckingMode": "standard",
+    "files.trimTrailingWhitespace": true,
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    },
+    "python.analysis.completeFunctionParens": true,
+    "markdown.preview.fontFamily": "'JetBrains Mono',-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
+    "chat.commandCenter.enabled": false,
+}
