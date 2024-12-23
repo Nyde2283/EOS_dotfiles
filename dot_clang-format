@@ -1,0 +1,32 @@
+# See https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+BasedOnStyle: Google
+
+IndentWidth: 4
+ColumnLimit: 110
+
+# AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveDeclarations: Consecutive
+
+# Alignement des arguments des fontions
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# Les while, if, else et fonctions sont sur une ligne s'ils sont vides
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Empty
+
+BreakBeforeTernaryOperators: true
+
+InsertNewlineAtEOF: true
+
+PointerAlignment: Right
+DerivePointerAlignment: false
+ReferenceAlignment: Pointer
+
+SeparateDefinitionBlocks: Always
+
+SpaceAfterCStyleCast: false
+
+SpacesBeforeTrailingComments: 3
+
