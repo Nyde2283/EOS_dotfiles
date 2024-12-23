@@ -14,17 +14,14 @@ if status is-interactive
     alias t "cd ~/Documents/TIPE"
     alias mpi "cd ~/Documents/MPI"
     alias tipe "cd ~/Documents/TIPE"
-    alias reload_fish "source ~/.config/fish/reload.fish"
     bind \er 'echo; echo; commandline -f repaint'
     bind \cl 'clear ; commandline -f repaint'
     bind \cq 'clear ; source ~/.config/fish/config.fish ; commandline -f repaint'
     bind \ea __fish_list_all_current_token
     bind \et __fish_list_tree_current_token
-    # bind \cf "echo; fzf --preview 'batcat --color always {}'; echo; commandline -f repaint"
-    # bind \ef "echo; find . | fzf --preview 'batcat --color always {}'; echo; commandline -f repaint"
-    bind \cf "fcd; reload_fish"
-    bind \ef "fcd_all; reload_fish"
-    bind \ec "fcd_home; reload_fish"
+    bind \cf "fcd; reload"
+    bind \ef "fcd_all; reload"
+    bind \ec "fcd_home; reload"
     bind \ei fcd_insert
     set -gx PATH $PATH /home/nyde/.local/bin
     oh-my-posh init fish --config "~/.config/assets/unicorn.omp.json" | source
