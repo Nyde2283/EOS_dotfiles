@@ -8,7 +8,6 @@ sudo pacman -S ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-fira-code ttf-f
 sudo pacman -S kitty --noconfirm
 sudo pacman -S micro --noconfirm
 sudo pacman -S fish --noconfirm
-sudo pacman -S tar --noconfirm
 sudo pacman -S hyprland --noconfirm
 
 
@@ -26,14 +25,14 @@ sudo pacman -S dunst --noconfirm
 sudo pacman -S pamixer --noconfirm
 sudo pacman -S waybar --noconfirm
 sudo pacman -S yazi --noconfirm
-sudo pacman -S dolphin --noconfirm
+# sudo pacman -S kwallet --noconfirm
+# sudo pacman -S dolphin --noconfirm
 sudo pacman -S cliphist --noconfirm
 sudo pacman -S cowsay --noconfirm
 sudo pacman -S lolcat --noconfirm
 sudo pacman -S opam --noconfirm
 sudo pacman -S btop --noconfirm
 sudo pacman -S zathura --noconfirm
-# sudo pacman -S kwallet --noconfirm
 sudo pacman -S eza --noconfirm
 yay -S tofi --noconfirm
 yay -S swww --noconfirm
