@@ -1,0 +1,68 @@
+# FONTS
+
+sudo pacman -S ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-jetbrains-mono-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono --noconfirm
+
+
+# CRITICAL
+
+sudo pacman -S kitty --noconfirm
+sudo pacman -S micro --noconfirm
+sudo pacman -S fish --noconfirm
+sudo pacman -S tar --noconfirm
+sudo pacman -S hyprland --noconfirm
+
+
+# COMPATIBILITY
+
+sudo pacman -S xdg-desktop-portal-hyprland --noconfirm
+sudo pacman -S polkit-kde-agent --noconfirm
+sudo pacman -S qt5-wayland qt6-wayland --noconfirm
+sudo pacman -S archlinux-xdg-menu --noconfirm
+
+
+# UTILITIES
+
+sudo pacman -S dunst --noconfirm
+sudo pacman -S pamixer --noconfirm
+sudo pacman -S waybar --noconfirm
+sudo pacman -S yazi --noconfirm
+sudo pacman -S dolphin --noconfirm
+sudo pacman -S cliphist --noconfirm
+sudo pacman -S cowsay --noconfirm
+sudo pacman -S lolcat --noconfirm
+sudo pacman -S opam --noconfirm
+sudo pacman -S btop --noconfirm
+sudo pacman -S zathura --noconfirm
+# sudo pacman -S kwallet --noconfirm
+sudo pacman -S eza --noconfirm
+yay -S tofi --noconfirm
+yay -S swww --noconfirm
+yay -S hyprpicker --noconfirm
+yay -S hyprlock --noconfirm
+yay -S hypridle --noconfirm
+yay -S wlogout --noconfirm
+yay -S grimblast --noconfirm
+
+
+# RICING
+
+yay -S pipes.sh --noconfirm
+yay -S oh-my-posh --noconfirm
+
+
+# CODING
+
+yay -S github-desktop-bin --noconfirm
+yay -S visual-studio-code-bin --noconfirm
+
+
+# COMMUNICATION
+
+sudo pacman -S signal-desktop --noconfirm
+yay -S vesktop --noconfirm
+
+
+# MEDIA
+
+sudo pacman -S --noconfirm --noconfirm
+yay -S plex-desktop --noconfirm

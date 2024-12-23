@@ -1,0 +1,5 @@
+opam init
+
+ocaml-lsp-server
+ocamlformat
+ocp-indent
