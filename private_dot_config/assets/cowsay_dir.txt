@@ -1,0 +1,1 @@
+Copy octopus to /usr/share/cowsay/cows
