@@ -3,7 +3,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-user]
+[user]
 	name = Nyde2283
 	email = edwynchev@gmail.com
 [credential]
