@@ -34,6 +34,8 @@ sudo pacman -S opam --noconfirm
 sudo pacman -S btop --noconfirm
 sudo pacman -S zathura --noconfirm
 sudo pacman -S eza --noconfirm
+sudo pacman -S networkmanager --noconfirm
+sudo pacman -S network-manager-applet --noconfirm
 yay -S tofi --noconfirm
 yay -S swww --noconfirm
 yay -S hyprpicker --noconfirm
