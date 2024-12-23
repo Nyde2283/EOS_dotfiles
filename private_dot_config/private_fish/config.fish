@@ -17,8 +17,8 @@ if status is-interactive
     bind \er 'echo; echo; commandline -f repaint'
     bind \cl 'clear ; commandline -f repaint'
     bind \cq 'clear ; source ~/.config/fish/config.fish ; commandline -f repaint'
-    bind \ea __fish_list_all_current_token
-    bind \et __fish_list_tree_current_token
+    bind \ea list_all_current_token
+    bind \et list_tree_current_token
     bind \cf "fcd; reload"
     bind \ef "fcd_all; reload"
     bind \ec "fcd_home; reload"

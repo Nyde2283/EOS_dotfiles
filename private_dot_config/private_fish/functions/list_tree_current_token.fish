@@ -1,4 +1,4 @@
-function __fish_list_tree_current_token
+function list_tree_current_token
     set -l val (commandline -t | string replace -r '^~' "$HOME")
     printf "\n"
     if test -d $val
