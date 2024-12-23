@@ -47,6 +47,8 @@ yay -S grimblast --noconfirm
 
 # RICING
 
+sudo pacman -S nwg-look --noconfirm
+sudo pacman -S qt5ct qt6ct kvantum --noconfirm
 yay -S pipes.sh --noconfirm
 yay -S oh-my-posh --noconfirm
 
