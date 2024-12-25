@@ -67,5 +67,5 @@ yay -S vesktop --noconfirm
 
 # MEDIA
 
-sudo pacman -S --noconfirm --noconfirm
+sudo pacman -S spotify --noconfirm
 yay -S plex-desktop --noconfirm
