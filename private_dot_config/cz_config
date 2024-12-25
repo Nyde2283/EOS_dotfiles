@@ -1,0 +1,3 @@
+[merge]
+    command = "meld"
+    args = ["{{ .Destination }}", "{{ .Source }}"]
