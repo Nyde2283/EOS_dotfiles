@@ -3,7 +3,7 @@ if status is-interactive
     echo "Prosternez vous devant le grand poulpy, mascotte de la MP2I" | cowsay -f octopus | lolcat
     # alias speedtest ~/.apps/Speedtest/speedtest
     # alias all-update "sudo apt update && sudo apt upgrade -y && sudo apt autopurge && sudo snap refresh && flatpak update"
-    alias pipe "pipes.sh -p 4 -r 10000 -R"
+    alias pipes "pipes.sh -p 4 -r 10000 -R"
     alias ls "eza --color always --long --no-permissions --no-filesize --no-user --no-time --icons always --group-directories-first --sort extension --grid"
     alias la "eza --color always --long --no-permissions --no-filesize --no-user --no-time --icons always --group-directories-first --sort extension --grid --all"
     alias lt "eza --color always --icons always --tree --level 2 --only-dirs --all"
