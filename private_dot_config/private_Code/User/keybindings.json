@@ -200,7 +200,7 @@
 		"when": "!notebookEditorFocused && editorLangId == 'markdown'"
 	},
 	{
-		"key": "alt+j",
+		"key": "ctrl+shift+alt+j",
 		"command": "workbench.action.toggleStatusbarVisibility"
 	},
 	{

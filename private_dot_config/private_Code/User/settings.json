@@ -1,6 +1,6 @@
 {
     "terminal.integrated.defaultProfile.linux": "fish",
-    "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "explorer.confirmDelete": false,
     "zenMode.silentNotifications": false,
@@ -13,14 +13,13 @@
     "files.autoSave": "onFocusChange",
     "codesnap.showWindowControls": false,
     "codesnap.shutterAction": "copy",
-    "editor.formatOnSave": true,
     "editor.minimap.showSlider": "always",
     "editor.minimap.renderCharacters": false,
     "workbench.colorCustomizations": {
-        "[Blinds (Default Dark)]": {
+        "[Blinds (Dark)]": {
             "editor.selectionBackground": "#264f88",
             "editor.inactiveSelectionBackground": "#264f38f0",
-            "editor.wordHighlightBackground": "#2e2e2e85",
+            "editor.wordHighlightBackground": "#e2e2e220",
             "minimap.selectionHighlight": "#264f78f0",
             "editorOverviewRuler.border": "#00000000",
             "editorOverviewRuler.background": "#1f1f1fbb",
@@ -36,7 +35,7 @@
     },
     "editor.stickyScroll.enabled": true,
     "editor.tokenColorCustomizations": {
-        "[Blinds (Default Dark)]": {
+        "[Blinds (Dark)]": {
             "textMateRules": [
                 {
                     "scope": "constant.numeric",
@@ -48,6 +47,18 @@
                     "scope": "markup.quote.markdown",
                     "settings": {
                         "foreground": "#707070"
+                    }
+                },
+                // {
+                //     "scope": "variable.parameter",
+                //     "settings": {
+                //         "fontStyle": "underline"
+                //     }
+                // },
+                {
+                    "scope": "meta.function-call.generic.python",
+                    "settings": {
+                        "foreground": "#ccbb44",
                     }
                 }
             ],
@@ -93,9 +104,10 @@
         "HACK",
         "FIXME",
         "TODO",
-        "XXX"
+        "XXX",
+        "OOO"
     ],
-    "workbench.colorTheme": "Blinds (Default Dark)",
+    "workbench.colorTheme": "Blinds (Dark)",
     "files.associations": {
         ".clang-format": "yaml",
         ".clangd": "yaml"
@@ -131,7 +143,7 @@
     "telemetry.telemetryLevel": "off",
     "settingsSync.keybindingsPerPla1tform": false,
     "git.openRepositoryInParentFolders": "always",
-    "window.titleBarStyle": "custom",
+    "window.titleBarStyle": "native",
     "settingsSync.keybindingsPerPlatform": false,
     "editor.rulers": [
         80
@@ -139,18 +151,27 @@
     "C_Cpp.doxygen.generatedStyle": "/**",
     "git.autofetch": true,
     "git.confirmSync": false,
-    "window.customTitleBarVisibility": "windowed",
+    "window.customTitleBarVisibility": "never",
     "files.insertFinalNewline": true,
     "window.density.editorTabHeight": "compact",
     "zenMode.centerLayout": false,
-    "editor.wordWrap": "on",
     "zenMode.restore": false,
-    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.typeCheckingMode": "basic",
     "files.trimTrailingWhitespace": true,
     "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    },
+    "[plaintext]": {
         "files.trimTrailingWhitespace": false
     },
     "python.analysis.completeFunctionParens": true,
     "markdown.preview.fontFamily": "'JetBrains Mono',-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
     "chat.commandCenter.enabled": false,
+    "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’“”|_",
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
+    "window.menuBarVisibility": "hidden",
+    "files.trimFinalNewlines": true,
+    "editor.minimap.enabled": false,
+    "window.customMenuBarAltFocus": false,
+    "workbench.activityBar.location": "hidden",
 }
