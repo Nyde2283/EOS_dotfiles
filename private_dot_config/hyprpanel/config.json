@@ -1,0 +1,132 @@
+{
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "theme.font.size": "0.9rem",
+  "theme.font.name": "JetBrainsMono Nerd Font",
+  "theme.font.label": "JetBrainsMono Nerd Font",
+  "theme.font.weight": 600,
+  "theme.bar.floating": false,
+  "theme.bar.location": "top",
+  "bar.autoHide": "never",
+  "theme.bar.buttons.enableBorders": false,
+  "theme.bar.border.location": "none",
+  "theme.bar.enableShadow": false,
+  "menus.media.hideAuthor": false,
+  "menus.media.hideAlbum": false,
+  "menus.media.displayTimeTooltip": true,
+  "menus.media.displayTime": true,
+  "bar.launcher.icon": "󰣇",
+  "bar.launcher.autoDetectIcon": true,
+  "theme.bar.buttons.dashboard.enableBorder": false,
+  "theme.bar.buttons.workspaces.enableBorder": false,
+  "bar.workspaces.monitorSpecific": false,
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.show_numbered": false,
+  "bar.workspaces.showWsIcons": true,
+  "bar.workspaces.showApplicationIcons": true,
+  "bar.workspaces.workspaceMask": false,
+  "bar.workspaces.applicationIconOncePerWorkspace": false,
+  "bar.workspaces.showAllActive": false,
+  "theme.bar.buttons.workspaces.smartHighlight": true,
+  "theme.bar.buttons.windowtitle.enableBorder": false,
+  "bar.windowtitle.custom_title": true,
+  "bar.volume.label": true,
+  "bar.network.truncation_size": 25,
+  "bar.network.showWifiInfo": true,
+  "bar.network.label": true,
+  "bar.battery.label": false,
+  "bar.battery.hideLabelWhenFull": false,
+  "theme.bar.buttons.systray.enableBorder": false,
+  "theme.bar.buttons.clock.enableBorder": false,
+  "bar.clock.format": "%a %d %b  %H:%M:%S",
+  "bar.clock.showTime": true,
+  "theme.bar.buttons.media.enableBorder": false,
+  "bar.media.show_label": true,
+  "bar.media.truncation": false,
+  "bar.media.truncation_size": 100,
+  "bar.media.show_active_only": true,
+  "bar.notifications.show_total": true,
+  "bar.notifications.hideCountWhenZero": true,
+  "menus.volume.raiseMaximumVolume": true,
+  "menus.clock.time.military": true,
+  "menus.clock.time.hideSeconds": false,
+  "menus.clock.weather.location": "Nantes",
+  "menus.clock.weather.unit": "metric",
+  "menus.clock.weather.enabled": false,
+  "menus.dashboard.powermenu.avatar.name": "Nyde",
+  "menus.dashboard.shortcuts.left.shortcut1.command": "zen-browser",
+  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Zen Browser",
+  "theme.bar.buttons.modules.microphone.enableBorder": false,
+  "theme.bar.buttons.modules.weather.enableBorder": false,
+  "menus.power.lowBatteryNotification": false,
+  "menus.power.showLabel": true,
+  "menus.dashboard.shortcuts.left.shortcut4.command": "tofi-drun -c ~/.config/tofi/conf --drun-launch=true",
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "systray",
+        "volume",
+        "network",
+        "bluetooth",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "systray",
+        "volume",
+        "network",
+        "bluetooth",
+        "clock",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    }
+  },
+  "theme.tooltip.scaling": 100,
+  "scalingPriority": "gdk",
+  "theme.bar.menus.enableShadow": false,
+  "menus.transitionTime": 0,
+  "theme.bar.transparent": true,
+  "theme.bar.buttons.style": "wave2",
+  "theme.bar.menus.monochrome": false,
+  "wallpaper.pywal": false,
+  "wallpaper.enable": false,
+  "wallpaper.image": "",
+  "theme.matugen": false,
+  "theme.matugen_settings.mode": "dark",
+  "theme.matugen_settings.scheme_type": "content",
+  "theme.matugen_settings.variation": "standard_1"
+}
