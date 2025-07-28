@@ -9,12 +9,6 @@ if status is-interactive
     alias lt "eza --color always --icons always --tree --level 2 --only-dirs --all"
     alias cz chezmoi
     alias lg "git log --oneline"
-    alias i "cd ~/Documents/MPI/Info"
-    alias m "cd ~/Documents/MPI/Maths"
-    alias p "cd ~/Documents/MPI/Physique"
-    alias t "cd ~/Documents/TIPE"
-    alias mpi "cd ~/Documents/MPI"
-    alias tipe "cd ~/Documents/TIPE"
     bind \er 'echo; echo; commandline -f repaint'
     bind \cl 'clear ; commandline -f repaint'
     bind \cq 'clear ; source ~/.config/fish/config.fish ; commandline -f repaint'
