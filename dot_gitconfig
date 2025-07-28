@@ -1,13 +1,11 @@
 [filter "lfs"]
+	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	required = true
 [user]
 	name = Nyde2283
 	email = edwynchev@gmail.com
-[credential]
-	helper = store
 [gui]
 	editor = code --wait
 [filter "lfs"]
@@ -18,10 +16,16 @@
 [core]
 	editor = micro
 [diff]
-	tool = vscode
+	tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+        cmd = meld "$LOCAL" "$REMOTE"
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
-	tool = vscode
+	tool = meld
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
