@@ -93,7 +93,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": "🦄",
+          "template": "🦑",
           "foreground": "#f1184c",
           "type": "text",
           "style": "plain"
