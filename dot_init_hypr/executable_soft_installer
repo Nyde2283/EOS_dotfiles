@@ -1,71 +1,230 @@
+# MISES A JOUR
+
+echo "
+----------------------------------------------------------------------------
+                                Mises à jour
+----------------------------------------------------------------------------
+"
+sudo pacman -Syu &&
+yay -Syu &&
+
 # FONTS
 
-sudo pacman -S ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-jetbrains-mono-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono --noconfirm
+echo "
+----------------------------------------------------------------------------
+                          Installation des polices
+----------------------------------------------------------------------------
+"
+sudo pacman -S ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-jetbrains-mono-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono --noconfirm --needed &&
 
 
 # CRITICAL
 
-sudo pacman -S kitty --noconfirm
-sudo pacman -S micro --noconfirm
-sudo pacman -S fish --noconfirm
-sudo pacman -S hyprland --noconfirm
+echo "
+----------------------------------------------------------------------------
+         Installation de Hyprland, sddm, uwsm, kitty, fish et micro
+----------------------------------------------------------------------------
+"
+sudo pacman -S hyprland --noconfirm --needed &&   # Window manager
+sudo pacman -S sddm --noconfirm --needed &&       # Login manager
+sudo pacman -S uwsm --noconfirm --needed &&       # Universal Wayland Session Manager
+sudo pacman -S kitty --noconfirm --needed &&      # Terminal emulator
+sudo pacman -S fish --noconfirm --needed &&       # Fancy SHELL
+sudo pacman -S micro --noconfirm --needed &&      # Fancy Nano
+
+
+# CHANGE SHELL
+
+echo "
+----------------------------------------------------------------------------
+                             Changement du SHELL
+----------------------------------------------------------------------------
+"
+sudo chsh -s /usr/bin/fish &&
+echo "
+Veillez configurer les variables suivantes dans l'éditeur qui va apparaitre :
+BROWSER=zen-browser
+EDITOR=micro
+SHELL=/usr/bin/fish
+
+Press any key to continue
+"
+read -n 1 -s -r
+micro /etc/environment &&
 
 
 # COMPATIBILITY
 
-sudo pacman -S xdg-desktop-portal-hyprland --noconfirm
-sudo pacman -S polkit-kde-agent --noconfirm
-sudo pacman -S qt5-wayland qt6-wayland --noconfirm
-sudo pacman -S archlinux-xdg-menu --noconfirm
+echo "
+----------------------------------------------------------------------------
+                  Installation des couches de compatibilité
+----------------------------------------------------------------------------
+"
+sudo pacman -S xdg-desktop-portal-hyprland --noconfirm --needed &&
+sudo pacman -S xdg-desktop-portal-gtk --noconfirm --needed &&
+sudo pacman -S hyprpolkitagent --noconfirm --needed &&
+sudo pacman -S qt5-wayland qt6-wayland --noconfirm --needed &&
 
 
 # UTILITIES
 
-sudo pacman -S dunst --noconfirm
-sudo pacman -S pamixer --noconfirm
-sudo pacman -S waybar --noconfirm
-sudo pacman -S yazi --noconfirm
-# sudo pacman -S kwallet --noconfirm
-# sudo pacman -S dolphin --noconfirm
-sudo pacman -S cliphist --noconfirm
-sudo pacman -S cowsay --noconfirm
-sudo pacman -S lolcat --noconfirm
-sudo pacman -S opam --noconfirm
-sudo pacman -S btop --noconfirm
-sudo pacman -S zathura --noconfirm
-sudo pacman -S eza --noconfirm
-sudo pacman -S networkmanager --noconfirm
-sudo pacman -S network-manager-applet --noconfirm
-yay -S tofi --noconfirm
-yay -S swww --noconfirm
-yay -S hyprpicker --noconfirm
-yay -S hyprlock --noconfirm
-yay -S hypridle --noconfirm
-yay -S wlogout --noconfirm
-yay -S grimblast --noconfirm
+echo "
+----------------------------------------------------------------------------
+                        Installation des utilitaires
+----------------------------------------------------------------------------
+"
+sudo pacman -S nautilus --noconfirm --needed &&                   # File manager
+sudo pacman -S nautilus-image-converter --noconfirm --needed &&
+sudo pacman -S cliphist --noconfirm --needed &&                   # Clipboard
+sudo pacman -S cowsay --noconfirm --needed &&                     # Funny greating in terminal
+sudo pacman -S lolcat --noconfirm --needed &&                     # Colorfull greating in terminal
+sudo pacman -S btop --noconfirm --needed &&                       # Task manager
+sudo pacman -S zathura --noconfirm --needed &&                    # PDF viewer
+sudo pacman -S zathura-pdf-poppler --noconfirm --needed &&        # Add PDF support to zathura
+sudo pacman -S eza --noconfirm --needed &&                        # Fancy ls
+sudo pacman -S bluetui --noconfirm --needed &&                    # Bluetooth manager TUI
+sudo pacman -S hyprpicker --noconfirm --needed &&                 # Color picker
+sudo pacman -S hyprlock --noconfirm --needed &&                   # Screen locker
+sudo pacman -S bat --noconfirm --needed &&                        # Fancy cat
+sudo pacman -S fd --noconfirm --needed &&                         # Fancy find
+sudo pacman -S imv --noconfirm --needed &&                        # Image viewer
+sudo pacman -S vlc --noconfirm --needed &&                        # Video player
+sudo pacman -S vlc-plugin-ffmpeg --noconfirm --needed &&          # Ffmpeg support for vlc
+sudo pacman -S wev --noconfirm --needed &&                        # Debug input for Hyprland
+sudo pacman -S udiskie --noconfirm --needed &&                    # Auto mount disks
+sudo pacman -S playerctl --noconfirm --needed &&                  # Allow media keys to work
+sudo pacman -S wpaperd --noconfirm --needed &&                    # Wallpaper manager
+yay -S nautilus-admin-gtk4 --noconfirm --needed &&
+yay -S nautilus-open-any-terminal --noconfirm --needed &&
+yay -S zen-browser-bin --noconfirm --needed &&                    # Browser
+yay -S ags-hyprpanel-git --noconfirm --needed &&                  # Status bar
+yay -S tofi --noconfirm --needed &&                               # App/Emoji/Clipboard launcher
+yay -S rofimoji-git --noconfirm --needed &&                           # Emoji feeder for Tofi
+yay -S hypridle --noconfirm --needed &&                           # Hidle manager
+yay -S wlogout --noconfirm --needed &&                            # Logout options menu
+yay -S grimblast-git --noconfirm --needed &&                      # Screenshot manager
+yay -S hyprls-git --noconfirm --needed &&                         # Language server for Hyprland config
+yay -S grub-customizer --noconfirm --needed &&                    # GUI to customize GRUB
+yay -S xorg-xhost --noconfirm --needed &&                         # Missing dependency for grub-customizer
+yay -S ookla-speedtest-bin --noconfirm --needed &&                # Ookla's speedtest CLI
 
 
 # RICING
 
-sudo pacman -S nwg-look --noconfirm
-sudo pacman -S qt5ct qt6ct kvantum --noconfirm
-yay -S pipes.sh --noconfirm
-yay -S oh-my-posh --noconfirm
+echo "
+----------------------------------------------------------------------------
+                           Installation des themes
+----------------------------------------------------------------------------
+"
+sudo pacman -S arc-gtk-theme-eos --noconfirm --needed &&                  # EndeavourOS theme
+sudo pacman -S fastfetch --noconfirm --needed &&                          # Fancy system info
+yay -S pipes.sh --noconfirm --needed &&                                   # PIPES EVERYWHERE
+yay -S oh-my-posh-bin --noconfirm --needed &&                             # Fancy SHELL prompt
+gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark" &&
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &&
 
 
 # CODING
 
-yay -S github-desktop-bin --noconfirm
-yay -S visual-studio-code-bin --noconfirm
+echo "
+----------------------------------------------------------------------------
+       Installation des applications de code, communication, media...
+----------------------------------------------------------------------------
+"
+yay -S github-desktop-plus-bin --noconfirm --needed &&   # For GUI lovers
+yay -S visual-studio-code-bin --noconfirm --needed &&    # Sry VIM, I take showers
 
 
 # COMMUNICATION
 
-sudo pacman -S signal-desktop --noconfirm
-yay -S vesktop --noconfirm
+sudo pacman -S signal-desktop --noconfirm --needed &&   # WhatsApp but private
+yay -S vesktop-bin --noconfirm --needed &&              # Fancy Discord
 
 
 # MEDIA
 
-sudo pacman -S spotify-launcher --noconfirm
-yay -S plex-desktop --noconfirm
+yay -S spotify --noconfirm --needed &&        # Spotify, that's it
+
+
+# SYSTEMD SETTINGS
+
+echo "
+----------------------------------------------------------------------------
+                           Paramétrage de systemd
+----------------------------------------------------------------------------
+"
+yay -S systemd-numlockontty --noconfirm --needed &&   # Enable numlock on tty, don't even know if it works
+
+# Enable services
+sudo systemctl enable sddm.service &&                # Login service
+sudo systemctl enable bluetooth.service &&           # With Bluetooth it's better
+sudo systemctl enable numLockOnTty.service &&        # Turn on numlock on tty
+systemctl --user enable hyprpolkitagent.service &&   # GUI sudo service
+systemctl --user enable hypridle.service &&          # Hidle service
+
+# Enable numlock and autologin
+sudo touch /etc/sddm.conf &&
+sudo bash -c 'echo "[General]
+Numlock=on
+[Autologin]
+User=nyde
+Session=hyprland-uwsm.desktop" > /etc/sddm.conf'
+
+echo "
+Veillez configurer la variable suivante dans l'éditeur qui va apparaitre :
+HandlePowerKeys=ignore
+
+Press any key to continue
+"
+read -n 1 -s -r
+micro /etc/systemd/logind.conf &&
+
+
+# XDG SETTINGS
+
+echo "
+----------------------------------------------------------------------------
+                             Paramétrage de XDG
+----------------------------------------------------------------------------
+"
+sudo ln -s /usr/bin/kitty /usr/bin/xdg-terminal-exec &&       # Open TUI apps (Btop, Micro, ...) inside Kitty instead of Xterm
+sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal &&          # Nautilus 'Open terminal here' option open Kitty instead of Xterm
+xdg-mime default org.gnome.Nautilus.desktop inode/directory   # Set Nautilus as default file manager
+
+
+# AUTORISATIONS SUDO
+
+echo "
+----------------------------------------------------------------------------
+       Autorisation d'exécuter ydotool et ydotoold en sudo par défaut
+----------------------------------------------------------------------------
+"
+sudo chmod +s /usr/bin/ydotoold
+sudo chmod +s /usr/bin/ydotool
+
+
+# NVIDIA DRIVERS
+
+echo "
+----------------------------------------------------------------------------
+                       Paramétrage des drivers NVIDIA
+----------------------------------------------------------------------------
+"
+sudo pacman -Rncs nvidia &&     # Remove Proprietary Drivers because I'm with a RTX 20xx
+sudo pacman -S nvidia-open &&   # Install Open Drivers
+
+
+# DIRECTORIES
+
+echo "
+----------------------------------------------------------------------------
+                      Créations des dossiers de travail
+----------------------------------------------------------------------------
+"
+mkdir ~/Documents/dev
+
+echo "
+Pensez à changer le thème de GRUB avec grub-customizer.
+Pour ajouter un dual boot, exécuter `sudo os-prober` avant.
+Si vous avez un dual boot Windows, exécuter `timedatectl set-local-rtc 1 --adjust-system-clock` pour régler le problème du différentiel d'heure entre Windows et Linux
+"
