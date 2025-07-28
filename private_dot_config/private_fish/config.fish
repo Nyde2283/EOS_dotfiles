@@ -9,15 +9,16 @@ if status is-interactive
     alias cz chezmoi
     alias lg "git log --oneline"
     bind \er 'echo; echo; commandline -f repaint'
-    bind \ea list_all_current_token
-    bind \et list_tree_current_token
-    bind \cf "fcd; reload"
-    bind \ef "fcd_all; reload"
-    bind \ec "fcd_home; reload"
-    bind \ei fcd_insert
     bind \cl 'reset ; commandline -f repaint'
     bind ctrl-alt-q 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint ; echo "Prosternez vous devant le grand poulpy, mascotte de la MP2I" | cowsay -f ~/.config/.assets/octopus.cow | lolcat'
     bind \cq 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint'
+    bind \ea 'fish_list_all_current_token'
+    bind \et 'fish_list_tree_current_token'
+    bind \cf "fish_search; reload"
+    bind \ef "fish_search_all; reload"
+    bind \ec "fish_search_home; reload"
+    bind ctrl-alt-c "fish_search_all_home; reload"
+    bind \ei "fish_insert"
     oh-my-posh init fish --config "~/.config/.assets/unicorn.omp.json" | source
 end
 

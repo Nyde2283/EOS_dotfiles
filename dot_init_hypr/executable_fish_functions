@@ -1,0 +1,116 @@
+#!/bin/fish
+function reload
+    if status is-interactive
+        oh-my-posh init fish | source
+    end
+end
+funcsave reload
+
+function op
+    open $argv > /dev/null 2>&1
+end
+funcsave op
+
+function fish_list_all_current_token
+    set -l val "$(commandline -t | string replace -r '^~' "$HOME")"
+    set -l cmd
+    if test -d $val
+        set cmd la $val
+    else
+        set -l dir (dirname -- $val)
+        if test $dir != . -a -d $dir
+            set cmd la $dir
+        else
+            set cmd la
+        end
+    end
+    __fish_echo $cmd
+end
+funcsave fish_list_all_current_token
+
+function fish_list_tree_current_token
+    set -l val "$(commandline -t | string replace -r '^~' "$HOME")"
+    set -l cmd
+    if test -d $val
+        set cmd lt $val
+    else
+        set -l dir (dirname -- $val)
+        if test $dir != . -a -d $dir
+            set cmd lt $dir
+        else
+            set cmd lt
+        end
+    end
+    __fish_echo $cmd
+end
+funcsave fish_list_tree_current_token
+
+function fish_search
+    set -l val (fd | fzf -e  --preview '$HOME/.config/.assets/scripts/fzf-preview {}')
+    if test -d $val
+        if test "$val" != ""
+            cd $val
+        else
+            cd .
+        end
+    else
+        set -l dir (dirname -- $val)
+        cd $dir
+    end
+    commandline -f repaint
+end
+funcsave fish_search
+
+function fish_search_all
+    set -l val (fd -H | fzf -e  --preview '$HOME/.config/.assets/scripts/fzf-preview {}')
+    if test -d $val
+        if test "$val" != ""
+            cd $val
+        else
+            cd .
+        end
+    else
+        set -l dir (dirname -- $val)
+        cd $dir
+    end
+    commandline -f repaint
+end
+funcsave fish_search_all
+
+function fish_search_home
+    set -l val (fd . ~ | fzf -e  --preview '$HOME/.config/.assets/scripts/fzf-preview {}')
+    if test -d $val
+        if test "$val" != ""
+            cd $val
+        else
+            cd .
+        end
+    else
+        set -l dir (dirname -- $val)
+        cd $dir
+    end
+    commandline -f repaint
+end
+funcsave fish_search_home
+
+function fish_search_all_home
+    set -l val (fd . ~ -H | fzf -e  --preview '$HOME/.config/.assets/scripts/fzf-preview {}')
+    if test -d $val
+        if test "$val" != ""
+            cd $val
+        else
+            cd .
+        end
+    else
+        set -l dir (dirname -- $val)
+        cd $dir
+    end
+    commandline -f repaint
+end
+funcsave fish_search_all_home
+
+function fish_insert
+    set -l val (fd --type f | fzf -e --preview '$HOME/.config/.assets/scripts/fzf-preview {}')
+    commandline -i $val
+end
+funcsave fish_insert
