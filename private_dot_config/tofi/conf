@@ -2,9 +2,8 @@ width = 100%
 height = 100%
 border-width = 0
 outline-width = 0
+padding-left = 33%
 padding-top = 33%
-padding-left = 10%
-padding-right = 10%
 result-spacing = 25
 num-results = 5
 
@@ -17,4 +16,3 @@ prompt-text = " : "
 
 background-color = #11111bd9
 selection-color =  #83A4E7
-
