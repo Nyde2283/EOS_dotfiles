@@ -24,6 +24,3 @@ if status is-interactive
     git_fzf_key_bindings
     oh-my-posh init fish --config "~/.config/.assets/unicorn.omp.json" | source
 end
-
-# opam configuration
-source /home/nyde/.opam/opam-init/init.fish >/dev/null 2>/dev/null; or true
