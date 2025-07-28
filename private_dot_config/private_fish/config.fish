@@ -18,7 +18,6 @@ if status is-interactive
     bind \ef "fcd_all; reload"
     bind \ec "fcd_home; reload"
     bind \ei fcd_insert
-    set -gx PATH $PATH /home/nyde/.local/bin
     oh-my-posh init fish --config "~/.config/.assets/unicorn.omp.json" | source
 end
 
