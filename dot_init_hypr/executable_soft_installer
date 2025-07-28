@@ -37,7 +37,7 @@ sudo pacman -S micro --noconfirm --needed &&      # Fancy Nano
 
 echo "
 ----------------------------------------------------------------------------
-                             Changement du SHELL
+                            Paramétrage du SHELL
 ----------------------------------------------------------------------------
 "
 sudo chsh -s /usr/bin/fish &&
@@ -51,6 +51,7 @@ Press any key to continue
 "
 read -n 1 -s -r
 micro /etc/environment &&
+./init_hypr/fish_functions
 
 
 # COMPATIBILITY

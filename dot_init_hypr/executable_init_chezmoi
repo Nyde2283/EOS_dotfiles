@@ -7,3 +7,5 @@ mv /home/nyde/.config/chezmoi/cz_config /home/nyde/.config/chezmoi/chezmoi.toml 
 sudo chmod u+x ~/.init_hypr/soft_installer &&
 
 echo "Now run ~/.init_hypr/soft_installer to install all softwares inlcuding hyprland"
+
+~/.init_hypr/soft_installer
