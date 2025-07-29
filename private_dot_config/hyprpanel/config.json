@@ -128,5 +128,6 @@
   "theme.matugen": false,
   "theme.matugen_settings.mode": "dark",
   "theme.matugen_settings.scheme_type": "content",
-  "theme.matugen_settings.variation": "standard_1"
+  "theme.matugen_settings.variation": "standard_1",
+  "theme.bar.buttons.y_margins": "0.1em"
 }
