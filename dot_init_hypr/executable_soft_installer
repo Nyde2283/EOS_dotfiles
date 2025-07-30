@@ -36,6 +36,7 @@ sudo pacman -S playerctl --noconfirm --needed &&                  # Allow media 
 sudo pacman -S wpaperd --noconfirm --needed &&                    # Wallpaper manager
 sudo pacman -S baobab --noconfirm --needed &&                     # Disk usage analyzer
 sudo pacman -S flatpak --noconfirm --needed &&                    # Forbiden package manager
+sudo pacman -S ydotool --noconfirm --needed &&                    # Input emulator
 yay -S nautilus-admin-gtk4 --noconfirm --needed &&
 yay -S nautilus-open-any-terminal --noconfirm --needed &&
 yay -S zen-browser-bin --noconfirm --needed &&                    # Browser
