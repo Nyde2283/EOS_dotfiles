@@ -5,7 +5,7 @@ echo "
                        Paramétrage des drivers NVIDIA
 ----------------------------------------------------------------------------
 Le script part du principe que le package nvidia est installé.
-Exécutez `pacman -Qi nvidia` pour savoir s'il est installé.
+Exécutez pacman -Qi nvidia pour savoir s'il est installé.
 
 Press any key to continue...
 "
