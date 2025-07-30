@@ -82,6 +82,7 @@ sudo pacman -S lolcat --noconfirm --needed &&                     # Colorfull gr
 sudo pacman -S btop --noconfirm --needed &&                       # Task manager
 sudo pacman -S zathura --noconfirm --needed &&                    # PDF viewer
 sudo pacman -S zathura-pdf-poppler --noconfirm --needed &&        # Add PDF support to zathura
+sudo pacman -S pdfarranger --noconfirm --needed &&                # PDF split/merge utility
 sudo pacman -S eza --noconfirm --needed &&                        # Fancy ls
 sudo pacman -S bluetui --noconfirm --needed &&                    # Bluetooth manager TUI
 sudo pacman -S hyprpicker --noconfirm --needed &&                 # Color picker
@@ -95,12 +96,14 @@ sudo pacman -S wev --noconfirm --needed &&                        # Debug input 
 sudo pacman -S udiskie --noconfirm --needed &&                    # Auto mount disks
 sudo pacman -S playerctl --noconfirm --needed &&                  # Allow media keys to work
 sudo pacman -S wpaperd --noconfirm --needed &&                    # Wallpaper manager
+sudo pacman -S baobab --noconfirm --needed &&                     # Disk usage analyzer
+sudo pacman -S flatpak --noconfirm --needed &&                    # Forbiden package manager
 yay -S nautilus-admin-gtk4 --noconfirm --needed &&
 yay -S nautilus-open-any-terminal --noconfirm --needed &&
 yay -S zen-browser-bin --noconfirm --needed &&                    # Browser
 yay -S ags-hyprpanel-git --noconfirm --needed &&                  # Status bar
 yay -S tofi --noconfirm --needed &&                               # App/Emoji/Clipboard launcher
-yay -S rofimoji-git --noconfirm --needed &&                           # Emoji feeder for Tofi
+yay -S rofimoji-git --noconfirm --needed &&                       # Emoji feeder for Tofi
 yay -S hypridle --noconfirm --needed &&                           # Hidle manager
 yay -S wlogout --noconfirm --needed &&                            # Logout options menu
 yay -S grimblast-git --noconfirm --needed &&                      # Screenshot manager
@@ -108,6 +111,9 @@ yay -S hyprls-git --noconfirm --needed &&                         # Language ser
 yay -S grub-customizer --noconfirm --needed &&                    # GUI to customize GRUB
 yay -S xorg-xhost --noconfirm --needed &&                         # Missing dependency for grub-customizer
 yay -S ookla-speedtest-bin --noconfirm --needed &&                # Ookla's speedtest CLI
+yay -S ente-auth-bin --noconfirm --needed &&                      # 2FA codes manager
+flatpak install org.gnome.Calculator                              # Basic calculator
+sudo cp org.gnome.Calculator.desktop /usr/share/applications/     # Put desktop entry in correct directory
 
 
 # RICING
