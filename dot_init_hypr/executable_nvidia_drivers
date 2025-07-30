@@ -1,0 +1,25 @@
+# NVIDIA DRIVERS
+
+echo "
+----------------------------------------------------------------------------
+                       Paramétrage des drivers NVIDIA
+----------------------------------------------------------------------------
+Le script part du principe que le package nvidia est installé.
+Exécutez `pacman -Qi nvidia` pour savoir s'il est installé.
+
+Press any key to continue...
+"
+read -n 1 -s -r
+sudo pacman -Rncs nvidia &&     # Remove Proprietary Drivers because I'm with a RTX 20xx
+sudo pacman -S nvidia-open &&   # Install Open Drivers
+
+
+
+
+echo "
+Après le redémarage, connectez vous et lancez ~/.init_hypr/soft_installer
+
+Press any key to continue...
+"
+read -n 1 -s -r
+systemctl reboot

@@ -1,72 +1,3 @@
-# MISES A JOUR
-
-echo "
-----------------------------------------------------------------------------
-                                Mises à jour
-----------------------------------------------------------------------------
-"
-sudo pacman -Syu &&
-yay -Syu &&
-
-# FONTS
-
-echo "
-----------------------------------------------------------------------------
-                          Installation des polices
-----------------------------------------------------------------------------
-"
-sudo pacman -S ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-jetbrains-mono-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono --noconfirm --needed &&
-
-
-# CRITICAL
-
-echo "
-----------------------------------------------------------------------------
-         Installation de Hyprland, sddm, uwsm, kitty, fish et micro
-----------------------------------------------------------------------------
-"
-sudo pacman -S hyprland --noconfirm --needed &&   # Window manager
-sudo pacman -S sddm --noconfirm --needed &&       # Login manager
-sudo pacman -S uwsm --noconfirm --needed &&       # Universal Wayland Session Manager
-sudo pacman -S kitty --noconfirm --needed &&      # Terminal emulator
-sudo pacman -S fish --noconfirm --needed &&       # Fancy SHELL
-sudo pacman -S micro --noconfirm --needed &&      # Fancy Nano
-
-
-# CHANGE SHELL
-
-echo "
-----------------------------------------------------------------------------
-                            Paramétrage du SHELL
-----------------------------------------------------------------------------
-"
-sudo chsh -s /usr/bin/fish &&
-echo "
-Veillez configurer les variables suivantes dans l'éditeur qui va apparaitre :
-BROWSER=zen-browser
-EDITOR=micro
-SHELL=/usr/bin/fish
-
-Press any key to continue
-"
-read -n 1 -s -r
-micro /etc/environment &&
-./init_hypr/fish_functions
-
-
-# COMPATIBILITY
-
-echo "
-----------------------------------------------------------------------------
-                  Installation des couches de compatibilité
-----------------------------------------------------------------------------
-"
-sudo pacman -S xdg-desktop-portal-hyprland --noconfirm --needed &&
-sudo pacman -S xdg-desktop-portal-gtk --noconfirm --needed &&
-sudo pacman -S hyprpolkitagent --noconfirm --needed &&
-sudo pacman -S qt5-wayland qt6-wayland --noconfirm --needed &&
-
-
 # UTILITIES
 
 echo "
@@ -74,6 +5,13 @@ echo "
                         Installation des utilitaires
 ----------------------------------------------------------------------------
 "
+echo "
+Les package installés avec yay peuvent être long à installer (notamment ags-hyprpanel qui prend un temps fou).
+Avant de partir de principe que l'installation est bloquée ou boucle dans le vide, attendez au moins 15 minutes.
+
+Press any key to continue...
+"
+read -n 1 -s -r
 sudo pacman -S nautilus --noconfirm --needed &&                   # File manager
 sudo pacman -S nautilus-image-converter --noconfirm --needed &&
 sudo pacman -S cliphist --noconfirm --needed &&                   # Clipboard
@@ -122,7 +60,9 @@ echo "
 ----------------------------------------------------------------------------
                            Installation des themes
 ----------------------------------------------------------------------------
+Press any key to continue...
 "
+read -n 1 -s -r
 sudo pacman -S arc-gtk-theme-eos --noconfirm --needed &&                  # EndeavourOS theme
 sudo pacman -S fastfetch --noconfirm --needed &&                          # Fancy system info
 yay -S pipes.sh --noconfirm --needed &&                                   # PIPES EVERYWHERE
@@ -137,7 +77,9 @@ echo "
 ----------------------------------------------------------------------------
        Installation des applications de code, communication, media...
 ----------------------------------------------------------------------------
+Press any key to continue...
 "
+read -n 1 -s -r
 yay -S github-desktop-plus-bin --noconfirm --needed &&   # For GUI lovers
 yay -S visual-studio-code-bin --noconfirm --needed &&    # Sry VIM, I take showers
 
@@ -159,32 +101,14 @@ echo "
 ----------------------------------------------------------------------------
                            Paramétrage de systemd
 ----------------------------------------------------------------------------
+Press any key to continue...
 "
+read -n 1 -s -r
 yay -S systemd-numlockontty --noconfirm --needed &&   # Enable numlock on tty
 
 # Enable services
-sudo systemctl enable sddm.service &&                # Login service
-sudo systemctl enable bluetooth.service &&           # With Bluetooth it's better
 sudo systemctl enable numLockOnTty.service &&        # Turn on numlock on tty
-systemctl --user enable hyprpolkitagent.service &&   # GUI sudo service
 systemctl --user enable hypridle.service &&          # Hidle service
-
-# Enable numlock and autologin in sddm
-sudo touch /etc/sddm.conf &&
-sudo bash -c 'echo "[General]
-Numlock=on
-[Autologin]
-User=nyde
-Session=hyprland-uwsm.desktop" > /etc/sddm.conf'
-
-echo "
-Veillez configurer la variable suivante dans l'éditeur qui va apparaitre :
-HandlePowerKeys=ignore
-
-Press any key to continue
-"
-read -n 1 -s -r
-micro /etc/systemd/logind.conf &&
 
 
 # XDG SETTINGS
@@ -193,7 +117,9 @@ echo "
 ----------------------------------------------------------------------------
                              Paramétrage de XDG
 ----------------------------------------------------------------------------
+Press any key to continue...
 "
+read -n 1 -s -r
 sudo ln -s /usr/bin/kitty /usr/bin/xdg-terminal-exec &&       # Open TUI apps (Btop, Micro, ...) inside Kitty instead of Xterm
 sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal &&          # Nautilus 'Open terminal here' option open Kitty instead of Xterm
 xdg-mime default org.gnome.Nautilus.desktop inode/directory   # Set Nautilus as default file manager
@@ -205,20 +131,11 @@ echo "
 ----------------------------------------------------------------------------
        Autorisation d'exécuter ydotool et ydotoold en sudo par défaut
 ----------------------------------------------------------------------------
+Press any key to continue...
 "
+read -n 1 -s -r
 sudo chmod +s /usr/bin/ydotoold
 sudo chmod +s /usr/bin/ydotool
-
-
-# NVIDIA DRIVERS
-
-echo "
-----------------------------------------------------------------------------
-                       Paramétrage des drivers NVIDIA
-----------------------------------------------------------------------------
-"
-sudo pacman -Rncs nvidia &&     # Remove Proprietary Drivers because I'm with a RTX 20xx
-sudo pacman -S nvidia-open &&   # Install Open Drivers
 
 
 # DIRECTORIES
@@ -227,11 +144,19 @@ echo "
 ----------------------------------------------------------------------------
                       Créations des dossiers de travail
 ----------------------------------------------------------------------------
+Press any key to continue...
 "
+read -n 1 -s -r
 mkdir ~/Documents/dev
+
+
+
 
 echo "
 Pensez à changer le thème de GRUB avec grub-customizer.
-Pour ajouter un dual boot, exécuter `sudo os-prober` avant.
-Si vous avez un dual boot Windows, exécuter `timedatectl set-local-rtc 1 --adjust-system-clock` pour régler le problème du différentiel d'heure entre Windows et Linux
+Pour ajouter un dual boot, exécutez `sudo os-prober` avant.
+Si vous avez un dual boot Windows, exécutez `timedatectl set-local-rtc 1 --adjust-system-clock` pour régler le problème du différentiel d'heure entre Windows et Linux
+
+Press any key to continue...
 "
+read -n 1 -s -r

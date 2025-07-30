@@ -1,0 +1,120 @@
+# MISES A JOUR
+
+echo "
+----------------------------------------------------------------------------
+                                Mises à jour
+----------------------------------------------------------------------------
+Press any key to continue...
+"
+read -n 1 -s -r
+sudo pacman -Syu &&
+yay -Syu &&
+
+# FONTS
+
+echo "
+----------------------------------------------------------------------------
+                          Installation des polices
+----------------------------------------------------------------------------
+Press any key to continue...
+"
+read -n 1 -s -r
+sudo pacman -S ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-jetbrains-mono-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono --noconfirm --needed &&
+
+
+# CRITICAL
+
+echo "
+----------------------------------------------------------------------------
+         Installation de Hyprland, sddm, uwsm, kitty, fish et micro
+----------------------------------------------------------------------------
+Press any key to continue...
+"
+read -n 1 -s -r
+sudo pacman -S hyprland --noconfirm --needed &&   # Window manager
+sudo pacman -S sddm --noconfirm --needed &&       # Login manager
+sudo pacman -S uwsm --noconfirm --needed &&       # Universal Wayland Session Manager
+sudo pacman -S kitty --noconfirm --needed &&      # Terminal emulator
+sudo pacman -S fish --noconfirm --needed &&       # Fancy SHELL
+sudo pacman -S micro --noconfirm --needed &&      # Fancy Nano
+
+
+# CHANGE SHELL
+
+echo "
+----------------------------------------------------------------------------
+                            Paramétrage du SHELL
+----------------------------------------------------------------------------
+Press any key to continue...
+"
+read -n 1 -s -r
+sudo chsh -s /usr/bin/fish &&
+echo "
+Veillez configurer les variables suivantes dans l'éditeur qui va apparaitre :
+BROWSER=zen-browser
+EDITOR=micro
+SHELL=/usr/bin/fish
+
+Press any key to continue...
+"
+read -n 1 -s -r
+micro /etc/environment &&
+./init_hypr/fish_functions
+
+
+# COMPATIBILITY
+
+echo "
+----------------------------------------------------------------------------
+                  Installation des couches de compatibilité
+----------------------------------------------------------------------------
+Press any key to continue...
+"
+read -n 1 -s -r
+sudo pacman -S xdg-desktop-portal-hyprland --noconfirm --needed &&
+sudo pacman -S xdg-desktop-portal-gtk --noconfirm --needed &&
+sudo pacman -S hyprpolkitagent --noconfirm --needed &&
+sudo pacman -S qt5-wayland qt6-wayland --noconfirm --needed &&
+
+
+# SYSTEMD SETTINGS
+
+echo "
+----------------------------------------------------------------------------
+                           Paramétrage de systemd
+----------------------------------------------------------------------------
+Press any key to continue...
+"
+read -n 1 -s -r
+# Enable services
+sudo systemctl enable sddm.service &&                # Login service
+sudo systemctl enable bluetooth.service &&           # With Bluetooth it's better
+systemctl --user enable hyprpolkitagent.service &&   # GUI sudo service
+
+# Enable numlock and autologin in sddm
+sudo touch /etc/sddm.conf &&
+sudo bash -c 'echo "[General]
+Numlock=on
+[Autologin]
+User=nyde
+Session=hyprland-uwsm.desktop" > /etc/sddm.conf'
+
+echo "
+Veillez configurer la variable suivante dans l'éditeur qui va apparaitre :
+HandlePowerKeys=ignore
+
+Press any key to continue...
+"
+read -n 1 -s -r
+micro /etc/systemd/logind.conf &&
+
+
+
+
+echo "
+Après le redémarage, connectez vous et lancez ~/.init_hypr/nvidia_drivers
+
+Press any key to continue...
+"
+read -n 1 -s -r
+sudo reboot
