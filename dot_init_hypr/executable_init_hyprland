@@ -111,10 +111,4 @@ micro /etc/systemd/logind.conf &&
 
 
 
-echo "
-Après le redémarage, connectez vous et lancez ~/.init_hypr/nvidia_drivers
-
-Press any key to continue...
-"
-read -n 1 -s -r
-sudo reboot
+~/.init_hypr/nvidia_drivers
