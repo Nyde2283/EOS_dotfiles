@@ -160,7 +160,7 @@ echo "
                            Paramétrage de systemd
 ----------------------------------------------------------------------------
 "
-yay -S systemd-numlockontty --noconfirm --needed &&   # Enable numlock on tty, don't even know if it works
+yay -S systemd-numlockontty --noconfirm --needed &&   # Enable numlock on tty
 
 # Enable services
 sudo systemctl enable sddm.service &&                # Login service
@@ -169,7 +169,7 @@ sudo systemctl enable numLockOnTty.service &&        # Turn on numlock on tty
 systemctl --user enable hyprpolkitagent.service &&   # GUI sudo service
 systemctl --user enable hypridle.service &&          # Hidle service
 
-# Enable numlock and autologin
+# Enable numlock and autologin in sddm
 sudo touch /etc/sddm.conf &&
 sudo bash -c 'echo "[General]
 Numlock=on
