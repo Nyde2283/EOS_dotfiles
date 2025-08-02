@@ -31,10 +31,10 @@
   "theme.bar.buttons.workspaces.smartHighlight": true,
   "theme.bar.buttons.windowtitle.enableBorder": false,
   "bar.windowtitle.custom_title": true,
-  "bar.volume.label": true,
+  "bar.volume.label": false,
   "bar.network.truncation_size": 25,
   "bar.network.showWifiInfo": true,
-  "bar.network.label": true,
+  "bar.network.label": false,
   "bar.battery.label": true,
   "bar.battery.hideLabelWhenFull": false,
   "theme.bar.buttons.systray.enableBorder": false,
@@ -65,9 +65,9 @@
   "bar.layouts": {
     "0": {
       "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
+        "cpu",
+        "ram",
+        "workspaces"
       ],
       "middle": [
         "cava",
@@ -75,8 +75,6 @@
       ],
       "right": [
         "systray",
-        "cpu",
-        "ram",
         "volume",
         "network",
         "bluetooth",
@@ -88,11 +86,12 @@
     },
     "1": {
       "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
+        "cpu",
+        "ram",
+        "workspaces"
       ],
       "middle": [
+        "cava",
         "media"
       ],
       "right": [
@@ -100,6 +99,8 @@
         "volume",
         "network",
         "bluetooth",
+        "hypridle",
+        "battery",
         "clock",
         "notifications"
       ]
@@ -140,5 +141,6 @@
   "bar.workspaces.spacing": 1.5,
   "bar.customModules.cava.showActiveOnly": true,
   "bar.customModules.cava.framerate": 40,
-  "menus.dashboard.powermenu.avatar.image": "/home/nyde/Pictures/Persos/IR_nyde.jpg"
+  "menus.dashboard.powermenu.avatar.image": "/home/nyde/Pictures/Persos/IR_nyde.jpg",
+  "bar.bluetooth.label": false
 }
