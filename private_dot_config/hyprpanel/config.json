@@ -35,7 +35,7 @@
   "bar.network.truncation_size": 25,
   "bar.network.showWifiInfo": true,
   "bar.network.label": true,
-  "bar.battery.label": false,
+  "bar.battery.label": true,
   "bar.battery.hideLabelWhenFull": false,
   "theme.bar.buttons.systray.enableBorder": false,
   "theme.bar.buttons.clock.enableBorder": false,
@@ -59,7 +59,7 @@
   "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Zen Browser",
   "theme.bar.buttons.modules.microphone.enableBorder": false,
   "theme.bar.buttons.modules.weather.enableBorder": false,
-  "menus.power.lowBatteryNotification": false,
+  "menus.power.lowBatteryNotification": true,
   "menus.power.showLabel": true,
   "menus.dashboard.shortcuts.left.shortcut4.command": "tofi-drun -c ~/.config/tofi/conf --drun-launch=true",
   "bar.layouts": {
@@ -70,13 +70,18 @@
         "windowtitle"
       ],
       "middle": [
+        "cava",
         "media"
       ],
       "right": [
         "systray",
+        "cpu",
+        "ram",
         "volume",
         "network",
         "bluetooth",
+        "hypridle",
+        "battery",
         "clock",
         "notifications"
       ]
@@ -129,5 +134,9 @@
   "theme.matugen_settings.mode": "dark",
   "theme.matugen_settings.scheme_type": "content",
   "theme.matugen_settings.variation": "standard_1",
-  "theme.bar.buttons.y_margins": "0.1em"
+  "theme.bar.buttons.y_margins": "0.1em",
+  "bar.customModules.hypridle.label": false,
+  "bar.customModules.cava.showActiveOnly": true,
+  "bar.customModules.cava.framerate": 40,
+  "menus.dashboard.powermenu.avatar.image": "/home/nyde/Pictures/Persos/IR_nyde.jpg"
 }
