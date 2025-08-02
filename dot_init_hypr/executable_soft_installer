@@ -21,6 +21,7 @@ sudo pacman -S btop --noconfirm --needed &&                       # Task manager
 sudo pacman -S zathura --noconfirm --needed &&                    # PDF viewer
 sudo pacman -S zathura-pdf-poppler --noconfirm --needed &&        # Add PDF support to zathura
 sudo pacman -S pdfarranger --noconfirm --needed &&                # PDF split/merge utility
+sudo pacman -S evince --noconfirm --needed &&                     # PDF thumbnailer
 sudo pacman -S eza --noconfirm --needed &&                        # Fancy ls
 sudo pacman -S bluetui --noconfirm --needed &&                    # Bluetooth manager TUI
 sudo pacman -S hyprpicker --noconfirm --needed &&                 # Color picker
@@ -37,6 +38,8 @@ sudo pacman -S wpaperd --noconfirm --needed &&                    # Wallpaper ma
 sudo pacman -S baobab --noconfirm --needed &&                     # Disk usage analyzer
 sudo pacman -S flatpak --noconfirm --needed &&                    # Forbiden package manager
 sudo pacman -S ydotool --noconfirm --needed &&                    # Input emulator
+sudo pacman -S brightnessctl --noconfirm --needed &&              # Brightness manager
+sudo pacman -S partitionmanager --noconfirm --needed &&           # Partition manager
 yay -S nautilus-admin-gtk4 --noconfirm --needed &&
 yay -S nautilus-open-any-terminal --noconfirm --needed &&
 yay -S zen-browser-bin --noconfirm --needed &&                    # Browser
