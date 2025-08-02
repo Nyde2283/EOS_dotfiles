@@ -39,7 +39,7 @@
   "bar.battery.hideLabelWhenFull": false,
   "theme.bar.buttons.systray.enableBorder": false,
   "theme.bar.buttons.clock.enableBorder": false,
-  "bar.clock.format": "%a %d %b  %H:%M:%S",
+  "bar.clock.format": "%a %d | %H:%M",
   "bar.clock.showTime": true,
   "theme.bar.buttons.media.enableBorder": false,
   "bar.media.show_label": true,
@@ -136,6 +136,8 @@
   "theme.matugen_settings.variation": "standard_1",
   "theme.bar.buttons.y_margins": "0.1em",
   "bar.customModules.hypridle.label": false,
+  "bar.workspaces.workspaces": 1,
+  "bar.workspaces.spacing": 1.5,
   "bar.customModules.cava.showActiveOnly": true,
   "bar.customModules.cava.framerate": 40,
   "menus.dashboard.powermenu.avatar.image": "/home/nyde/Pictures/Persos/IR_nyde.jpg"
