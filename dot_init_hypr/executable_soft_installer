@@ -40,6 +40,8 @@ sudo pacman -S flatpak --noconfirm --needed &&                    # Forbiden pac
 sudo pacman -S ydotool --noconfirm --needed &&                    # Input emulator
 sudo pacman -S brightnessctl --noconfirm --needed &&              # Brightness manager
 sudo pacman -S partitionmanager --noconfirm --needed &&           # Partition manager
+sudo pacman -S cups --noconfirm --needed &&                       # Printer system
+sudo pacman -S system-config-printer --noconfirm --needed &&      # Printer configurator
 yay -S nautilus-admin-gtk4 --noconfirm --needed &&
 yay -S nautilus-open-any-terminal --noconfirm --needed &&
 yay -S zen-browser-bin --noconfirm --needed &&                    # Browser
@@ -54,6 +56,7 @@ yay -S grub-customizer --noconfirm --needed &&                    # GUI to custo
 yay -S xorg-xhost --noconfirm --needed &&                         # Missing dependency for grub-customizer
 yay -S ookla-speedtest-bin --noconfirm --needed &&                # Ookla's speedtest CLI
 yay -S ente-auth-bin --noconfirm --needed &&                      # 2FA codes manager
+yay -S samsung-unified-driver --noconfirm --needed &&             # Drivers for Samsung's printers
 flatpak install org.gnome.Calculator                              # Basic calculator
 sudo cp org.gnome.Calculator.desktop /usr/share/applications/     # Put desktop entry in correct directory
 
@@ -99,6 +102,18 @@ yay -S vesktop-bin --noconfirm --needed &&              # Fancy Discord
 yay -S spotify --noconfirm --needed &&        # Spotify, that's it
 
 
+# GROUPS
+
+echo "
+# ---------------------------------------------------------------------------- #
+#                            Paramétrage des groups                            #
+# ---------------------------------------------------------------------------- #
+Press any key to continue...
+"
+read -n 1 -s -r
+sudo usermod -aG lp nyde   # Add user to printing group
+
+
 # SYSTEMD SETTINGS
 
 echo "
@@ -112,6 +127,7 @@ yay -S systemd-numlockontty --noconfirm --needed &&   # Enable numlock on tty
 
 # Enable services
 sudo systemctl enable numLockOnTty.service &&        # Turn on numlock on tty
+sudo systemctl enable cups                           # Enable printer system
 systemctl --user enable hypridle.service &&          # Hidle service
 
 
