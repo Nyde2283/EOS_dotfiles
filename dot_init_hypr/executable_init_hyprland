@@ -121,7 +121,7 @@ read -n 1 -s -r
 sudo bash -c 'echo "[DisableThatShitHighResolution]
 MatchName=*
 AttrEventCode=-REL_WHEEL_HI_RES;-REL_HWHEEL_HI_RES;" > /etc/libinput/local-overrides.quirks'
-sudo bash -c 'echo "blacklist hid_logitech_hidpp" > /etc/modprob.d/blacklist.conf'
+sudo bash -c 'echo "blacklist hid_logitech_hidpp" > /etc/modprobe.d/blacklist.conf'
 
 
 ~/.init_hypr/nvidia_drivers
