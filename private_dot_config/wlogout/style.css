@@ -8,7 +8,7 @@
 }
 
 window {
-    background-image: image(url('/home/nyde/.config/.assets/backgrounds/cat_leaves_blurred.png'));
+    background-image: image(url('../.assets/backgrounds/cat_leaves_blurred.png'));
 }
 
 button {
@@ -67,37 +67,37 @@ button:hover#reboot {
 }
 
 #lock {
-    background-image: image(url("$HOME/.config/wlogout/icons/lock_light.png"), url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+    background-image: image(url("./icons/lock_light.png"));
     border-radius: 60px 0px 0px 60px;
     margin : 108px 0px 108px 108px;
 }
 
 #logout {
-    background-image: image(url("$HOME/.config/wlogout/icons/logout_light.png"), url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+    background-image: image(url("./icons/logout_light.png"));
     border-radius: 0px 0px 0px 0px;
     margin : 108px 0px 108px 0px;
 }
 
 #suspend {
-    background-image: image(url("$HOME/.config/wlogout/icons/suspend_light.png"), url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+    background-image: image(url("./icons/suspend_light.png"));
     border-radius: 0px 0px 0px 0px;
     margin : 108px 0px 108px 0px;
 }
 
 #shutdown {
-    background-image: image(url("$HOME/.config/wlogout/icons/shutdown_light.png"), url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+    background-image: image(url("./icons/shutdown_light.png"));
     border-radius: 0px 0px 0px 0px;
     margin : 108px 0px 108px 0px;
 }
 
 #hibernate {
-    background-image: image(url("$HOME/.config/wlogout/icons/hibernate_light.png"), url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+    background-image: image(url("./icons/hibernate_light.png"));
     border-radius: 0px 0px 0px 0px;
     margin : 108px 0px 108px 0px;
 }
 
 #reboot {
-    background-image: image(url("$HOME/.config/wlogout/icons/reboot_light.png"), url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+    background-image: image(url("./icons/reboot_light.png"));
     border-radius: 0px 60px 60px 0px;
     margin : 108px 108px 108px 0px;
 }

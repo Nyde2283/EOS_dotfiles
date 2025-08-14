@@ -1,5 +1,5 @@
 [default]
-path = "/home/nyde/.config/.assets/backgrounds/wallpapers"
+path = "~/.config/.assets/backgrounds/wallpapers"
 duration = "5m"
 group = 0
 queue-size = 1

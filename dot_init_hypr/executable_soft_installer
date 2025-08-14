@@ -117,7 +117,7 @@ echo "
 Press any key to continue...
 "
 read -n 1 -s -r
-sudo usermod -aG lp nyde   # Add user to printing group
+sudo usermod -aG lp $USER   # Add user to printing group
 
 
 # SYSTEMD SETTINGS

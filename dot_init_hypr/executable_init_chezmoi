@@ -1,7 +1,7 @@
 sudo pacman -S --noconfirmation chezmoi &&
 chezmoi init https://github.com/Nyde2283/EOS_dotfiles &&
 chezmoi apply &&
-cp /home/nyde/.config/cz_config /home/nyde/.config/chezmoi/ &&
-mv /home/nyde/.config/chezmoi/cz_config /home/nyde/.config/chezmoi/chezmoi.toml &&
+cp ~/.config/cz_config ~/.config/chezmoi/ &&
+mv ~/.config/chezmoi/cz_config ~/.config/chezmoi/chezmoi.toml &&
 
 ~/.init_hypr/soft_installer

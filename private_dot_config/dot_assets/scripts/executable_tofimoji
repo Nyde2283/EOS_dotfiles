@@ -1,3 +1,3 @@
 #!/bin/bash
-rofimoji -a copy --selector tofi --selector-args="-c /home/nyde/.config/tofi/conf-tofimoji"
+rofimoji -a copy --selector tofi --selector-args="-c $XDG_CONFIG_HOME/tofi/conf-tofimoji"
 ydotool key 29:1 47:1 47:0 29:0
