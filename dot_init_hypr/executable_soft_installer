@@ -62,6 +62,7 @@ yay -S ookla-speedtest-bin --noconfirm --needed &&                # Ookla's spee
 yay -S ente-auth-bin --noconfirm --needed &&                      # 2FA codes manager
 yay -S samsung-unified-driver --noconfirm --needed &&             # Drivers for Samsung's printers
 yay -S freedownloadmanager --noconfirm --needed &&                # Download manager, need browser extension to work
+yay -S pyprland --noconfirm --needed &&                           # Plugin manager, used for scratchpads
 flatpak install -y org.gnome.Calculator                           # Basic calculator
 flatpak install -y org.kiwix.desktop                              # Offline reader for Wikipedia
 sudo cp org.gnome.Calculator.desktop /usr/share/applications/     # Put desktop entry in correct directory
