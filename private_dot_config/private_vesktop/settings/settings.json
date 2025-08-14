@@ -82,7 +82,7 @@
             "enabled": false
         },
         "BetterGifPicker": {
-            "enabled": true
+            "enabled": false
         },
         "BetterNotesBox": {
             "enabled": false
@@ -288,11 +288,11 @@
             "enabled": true,
             "deleteStyle": "text",
             "logDeletes": true,
-            "collapseDeleted": false,
+            "collapseDeleted": true,
             "logEdits": true,
             "inlineEdits": true,
-            "ignoreBots": false,
-            "ignoreSelf": false,
+            "ignoreBots": true,
+            "ignoreSelf": true,
             "ignoreUsers": "",
             "ignoreChannels": "",
             "ignoreGuilds": ""
