@@ -18,6 +18,7 @@ sudo pacman -S cliphist --noconfirm --needed &&                   # Clipboard
 sudo pacman -S cowsay --noconfirm --needed &&                     # Funny greating in terminal
 sudo pacman -S lolcat --noconfirm --needed &&                     # Colorfull greating in terminal
 sudo pacman -S btop --noconfirm --needed &&                       # Task manager
+sudo pacman -S mission-center --noconfirm --needed &&             # GUI Task manager
 sudo pacman -S zathura --noconfirm --needed &&                    # PDF viewer
 sudo pacman -S zathura-pdf-poppler --noconfirm --needed &&        # Add PDF support to zathura
 sudo pacman -S pdfarranger --noconfirm --needed &&                # PDF split/merge utility
