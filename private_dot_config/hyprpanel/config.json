@@ -142,5 +142,6 @@
   "bar.customModules.cava.showActiveOnly": true,
   "bar.customModules.cava.framerate": 40,
   "menus.dashboard.powermenu.avatar.image": "/home/nyde/Pictures/Persos/IR_nyde.jpg",
-  "bar.bluetooth.label": false
+  "bar.bluetooth.label": false,
+  "bar.workspaces.ignored": "-"
 }
