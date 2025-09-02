@@ -30,6 +30,7 @@ sudo pacman -S hyprlock --noconfirm --needed &&                   # Screen locke
 sudo pacman -S bat --noconfirm --needed &&                        # Fancy cat
 sudo pacman -S fd --noconfirm --needed &&                         # Fancy find
 sudo pacman -S imv --noconfirm --needed &&                        # Image viewer
+sudo pacman -S loupe --noconfirm --needed &&                      # GNOME image viewer
 sudo pacman -S vlc --noconfirm --needed &&                        # Video player
 sudo pacman -S vlc-plugin-ffmpeg --noconfirm --needed &&          # Ffmpeg support for vlc
 sudo pacman -S wev --noconfirm --needed &&                        # Debug input for Hyprland
