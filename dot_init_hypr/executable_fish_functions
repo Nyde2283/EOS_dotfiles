@@ -114,3 +114,29 @@ function fish_insert
     commandline -i $val
 end
 funcsave fish_insert
+
+function focusmod
+    if not set -q infocus
+        set -U infocus 0
+    end
+    if test $infocus = 1
+        hyprctl keyword general:gaps_in 3
+        hyprctl keyword general:gaps_out 3
+        hyprctl keyword general:border_size 1
+        hyprctl keyword decoration:rounding 10
+        if test (hyprpanel iwv bar-0) = "false"
+            hyprpanel t bar-0
+        end
+        set -U infocus 0
+    else
+        hyprctl keyword general:gaps_in 0
+        hyprctl keyword general:gaps_out 0
+        hyprctl keyword general:border_size 0
+        hyprctl keyword decoration:rounding 0
+        if test (hyprpanel iwv bar-0) = "true"
+            hyprpanel t bar-0
+        end
+        set -U infocus 1
+    end
+end
+funcsave focusmod
