@@ -46,6 +46,8 @@ sudo pacman -S cups --noconfirm --needed &&                       # Printer syst
 sudo pacman -S system-config-printer --noconfirm --needed &&      # Printer configurator
 sudo pacman -S foot --noconfirm --needed &&                       # Fast terminal emulator used by Alt+Tab
 sudo pacman -S chafa --noconfirm --needed &&                      # Image to Unicode converter used by Alt+Tab
+sudo pacman -S network-manager-applet --noconfirm --needed &&     # Network manager GUI
+sudo pacman -S thunderbird --noconfirm --needed &&                # Mail Client
 yay -S nautilus-admin-gtk4 --noconfirm --needed &&
 yay -S nautilus-open-any-terminal --noconfirm --needed &&
 yay -S zen-browser-bin --noconfirm --needed &&                    # Browser
