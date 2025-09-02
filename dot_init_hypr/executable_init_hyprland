@@ -124,4 +124,7 @@ AttrEventCode=-REL_WHEEL_HI_RES;-REL_HWHEEL_HI_RES;" > /etc/libinput/local-overr
 sudo bash -c 'echo "blacklist hid_logitech_hidpp" > /etc/modprobe.d/blacklist.conf'
 
 
-~/.init_hypr/nvidia_drivers
+echo "
+Au choix, lancez nvidia_drivers pour installer les drivers NVIDIA open si vous en avez besoin.
+Sinon lancez soft_installer.
+"
