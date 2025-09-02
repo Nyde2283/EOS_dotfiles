@@ -76,7 +76,6 @@
       "right": [
         "systray",
         "volume",
-        "network",
         "bluetooth",
         "hypridle",
         "battery",
