@@ -183,6 +183,7 @@ echo "
 Pensez à changer le thème de GRUB avec grub-customizer.
 Pour ajouter un dual boot, exécutez sudo os-prober avant.
 Si vous avez un dual boot Windows, exécutez timedatectl set-local-rtc 1 --adjust-system-clock pour régler le problème du différentiel d'heure entre Windows et Linux
+Sur Zen Browser, pour enlever la bordure un peu chiante il faut set la variable zen.theme.content-element-separation à 0.
 
 Press any key to continue...
 "
