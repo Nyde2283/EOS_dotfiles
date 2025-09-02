@@ -143,5 +143,16 @@
   "bar.customModules.cava.framerate": 40,
   "menus.dashboard.powermenu.avatar.image": "~/Pictures/Persos/IR_nyde.jpg",
   "bar.bluetooth.label": false,
-  "bar.workspaces.ignored": "-"
+  "bar.workspaces.ignored": "-",
+  "bar.workspaces.applicationIconMap": {
+    "Meld": "",
+    "GitHub": "",
+    "pulseaudio": "󰕾",
+    "calculator": "",
+    "kiwix": "",
+    "fdm": "",
+    "missioncenter": "",
+    "ente.auth": "󰦯",
+    "zathura": ""
+  }
 }
