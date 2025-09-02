@@ -285,7 +285,7 @@
             "idList": ""
         },
         "MessageLogger": {
-            "enabled": true,
+            "enabled": false,
             "deleteStyle": "text",
             "logDeletes": true,
             "collapseDeleted": true,
@@ -606,6 +606,12 @@
         },
         "WebContextMenus": {
             "enabled": true
+        },
+        "CopyStickerLinks": {
+            "enabled": false
+        },
+        "ImageFilename": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -618,6 +624,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1753712463119
+        "settingsSyncVersion": 1756647518053
     }
 }
