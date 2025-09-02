@@ -4,4 +4,4 @@ chezmoi apply &&
 cp ~/.config/cz_config ~/.config/chezmoi/ &&
 mv ~/.config/chezmoi/cz_config ~/.config/chezmoi/chezmoi.toml &&
 
-~/.init_hypr/soft_installer
+~/.init_hypr/init_hyprland
