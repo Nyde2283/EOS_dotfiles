@@ -110,7 +110,7 @@ end
 funcsave fish_search_all_home
 
 function fish_insert
-    set -l val (fd --type f | fzf -e --preview '$HOME/.config/.assets/scripts/fzf-preview {}')
+    set -l val (fd . ~ -H --type f | fzf -e --preview '$HOME/.config/.assets/scripts/fzf-preview {}')
     commandline -i $val
 end
 funcsave fish_insert
