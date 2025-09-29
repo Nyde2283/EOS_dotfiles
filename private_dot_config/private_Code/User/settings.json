@@ -174,4 +174,7 @@
     "editor.minimap.enabled": false,
     "window.customMenuBarAltFocus": false,
     "workbench.activityBar.location": "hidden",
+    "github.copilot.enable": {
+        "*": false
+    },
 }
