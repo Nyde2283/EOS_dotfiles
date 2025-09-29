@@ -6,7 +6,7 @@ if status is-interactive
     alias ls "eza --color always --long --no-permissions --no-filesize --no-user --no-time --icons always --group-directories-first --sort extension --grid"
     alias la "eza --color always --long --no-permissions --no-user --no-time --icons always --group-directories-first --sort extension --grid --all"
     alias lt "eza --color always --icons always --tree --level 2 --only-dirs --all"
-    alias lsp "eza -l"
+    alias lsp "eza -l --all"
     alias cz chezmoi
     alias lg "git log --oneline"
     bind \er 'echo; echo; commandline -f repaint'
