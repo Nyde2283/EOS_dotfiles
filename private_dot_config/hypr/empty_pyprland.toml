@@ -19,3 +19,11 @@ size = "40% 90%"
 unfocus = "hide"
 close_on_hide = true
 hide_delay = 0.2
+
+[scratchpads.spotify]
+animation = "fromTop"
+command = "spotify"
+class = "spotify"
+size = "90% 85%"
+unfocus = "hide"
+lazy = true
