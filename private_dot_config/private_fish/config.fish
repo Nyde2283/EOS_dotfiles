@@ -18,8 +18,8 @@ if status is-interactive
     bind \et 'fish_list_tree_current_token'
     bind \cf "fish_search; reload"
     bind \ef "fish_search_all; reload"
-    bind \ec "fish_search_home; reload"
-    bind ctrl-alt-c "fish_search_all_home; reload"
+    bind \ec "fish_search_all_home; reload"
+    # bind ctrl-alt-c "fish_search_all_home; reload"
     bind \ei "fish_insert"
     source ~/.config/.assets/scripts/git_fzf.fish
     git_fzf_key_bindings
