@@ -211,5 +211,14 @@
 		"key": "ctrl+[Quote]",
 		"command": "workbench.action.terminal.focusNext",
 		"when": "terminalHasBeenCreated || terminalProcessSupported"
+	},
+	{
+		"key": "ctrl+alt+g",
+		"command": "-workbench.action.terminal.sendSequence",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+alt+g",
+		"command": "git-graph.view"
 	}
 ]
