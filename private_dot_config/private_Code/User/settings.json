@@ -107,7 +107,6 @@
         "XXX",
         "OOO"
     ],
-    "workbench.colorTheme": "Blinds (Dark)",
     "files.associations": {
         ".clang-format": "yaml",
         ".clangd": "yaml"
@@ -177,4 +176,5 @@
     "github.copilot.enable": {
         "*": false
     },
+    "workbench.colorTheme": "Dracula Theme",
 }
