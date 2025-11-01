@@ -70,7 +70,6 @@
         "workspaces"
       ],
       "middle": [
-        "cava",
         "media"
       ],
       "right": [
@@ -90,7 +89,6 @@
         "workspaces"
       ],
       "middle": [
-        "cava",
         "media"
       ],
       "right": [
@@ -138,8 +136,6 @@
   "bar.customModules.hypridle.label": false,
   "bar.workspaces.workspaces": 1,
   "bar.workspaces.spacing": 1.5,
-  "bar.customModules.cava.showActiveOnly": true,
-  "bar.customModules.cava.framerate": 40,
   "menus.dashboard.powermenu.avatar.image": "~/Pictures/Persos/IR_nyde.jpg",
   "bar.bluetooth.label": false,
   "bar.workspaces.ignored": "-",
