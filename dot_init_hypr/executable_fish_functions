@@ -127,6 +127,12 @@ function focusmod
         if test (hyprpanel iwv bar-0) = "false"
             hyprpanel t bar-0
         end
+        if test (hyprpanel iwv bar-1) = "false"
+            hyprpanel t bar-1
+        end
+        if test (hyprpanel iwv bar-2) = "false"
+            hyprpanel t bar-2
+        end
         set -U infocus 0
     else
         hyprctl keyword general:gaps_in 0
@@ -135,6 +141,12 @@ function focusmod
         hyprctl keyword decoration:rounding 0
         if test (hyprpanel iwv bar-0) = "true"
             hyprpanel t bar-0
+        end
+        if test (hyprpanel iwv bar-1) = "true"
+            hyprpanel t bar-1
+        end
+        if test (hyprpanel iwv bar-2) = "true"
+            hyprpanel t bar-2
         end
         set -U infocus 1
     end
