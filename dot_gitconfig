@@ -12,15 +12,15 @@
 [core]
 	editor = micro
 [diff]
-	tool = meld
+	tool = vscode
 [difftool]
     prompt = false
 [difftool "meld"]
         cmd = meld "$LOCAL" "$REMOTE"
 [difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
+	cmd = code --diff $LOCAL $REMOTE
 [merge]
-	tool = meld
+	tool = vscode
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 [mergetool "vscode"]
