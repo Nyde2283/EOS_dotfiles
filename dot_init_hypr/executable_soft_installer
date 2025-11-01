@@ -48,6 +48,11 @@ sudo pacman -S foot --noconfirm --needed &&                       # Fast termina
 sudo pacman -S chafa --noconfirm --needed &&                      # Image to Unicode converter used by Alt+Tab
 sudo pacman -S network-manager-applet --noconfirm --needed &&     # Network manager GUI
 sudo pacman -S thunderbird --noconfirm --needed &&                # Mail Client
+sudo pacman -S yazi --noconfirm --needed &&                       # TUI File manager
+sudo pacman -S chromium --noconfirm --needed &&                   # A better browser (only for CSS coding)
+sudo pacman -S hyprpaper --noconfirm --needed &&                  # Hyprland's wallpaper manager
+sudo pacman -S typst --noconfirm --needed &&                      # Typst > Latex
+sudo pacman -S libreoffice-fresh --noconfirm --needed &&          # Just Libre Office
 yay -S nautilus-admin-gtk4 --noconfirm --needed &&
 yay -S nautilus-open-any-terminal --noconfirm --needed &&
 yay -S zen-browser-bin --noconfirm --needed &&                    # Browser
@@ -66,6 +71,8 @@ yay -S ente-auth-bin --noconfirm --needed &&                      # 2FA codes ma
 yay -S samsung-unified-driver --noconfirm --needed &&             # Drivers for Samsung's printers
 yay -S freedownloadmanager --noconfirm --needed &&                # Download manager, need browser extension to work
 yay -S pyprland --noconfirm --needed &&                           # Plugin manager, used for scratchpads
+yay -S anki-bin --noconfirm --needed &&                           # Learning with cards
+yay -S informant --noconfirm --needed &&                          # Prevent update if fresh Arch news post
 flatpak install -y org.gnome.Calculator                           # Basic calculator
 flatpak install -y org.kiwix.desktop                              # Offline reader for Wikipedia
 sudo cp org.gnome.Calculator.desktop /usr/share/applications/     # Put desktop entry in correct directory
