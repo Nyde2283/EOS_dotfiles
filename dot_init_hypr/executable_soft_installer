@@ -36,7 +36,6 @@ sudo pacman -S vlc-plugin-ffmpeg --noconfirm --needed &&          # Ffmpeg suppo
 sudo pacman -S wev --noconfirm --needed &&                        # Debug input for Hyprland
 sudo pacman -S udiskie --noconfirm --needed &&                    # Auto mount disks
 sudo pacman -S playerctl --noconfirm --needed &&                  # Allow media keys to work
-sudo pacman -S wpaperd --noconfirm --needed &&                    # Wallpaper manager
 sudo pacman -S baobab --noconfirm --needed &&                     # Disk usage analyzer
 sudo pacman -S flatpak --noconfirm --needed &&                    # Forbiden package manager
 sudo pacman -S ydotool --noconfirm --needed &&                    # Input emulator
