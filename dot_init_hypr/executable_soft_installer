@@ -197,3 +197,6 @@ Sur Zen Browser, pour enlever la bordure un peu chiante il faut set la variable 
 Press any key to continue...
 "
 read -n 1 -s -r
+
+
+# TODO : Add sddm theme and copy of nyde IR to profile (refer to the change profil script of silent theme)
