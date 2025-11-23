@@ -193,5 +193,4 @@
         "*": false
     },
     "workbench.colorTheme": "Dracula Theme",
-    "git-blame.config.showBlameInline": false,
 }
