@@ -145,6 +145,7 @@ yay -S systemd-numlockontty --noconfirm --needed &&   # Enable numlock on tty
 sudo systemctl enable numLockOnTty.service &&        # Turn on numlock on tty
 sudo systemctl enable cups                           # Enable printer system
 systemctl --user enable hypridle.service &&          # Hidle service
+systemctl --user enable --now hyprpaper.service      # Wallpaper service
 
 
 # XDG SETTINGS
