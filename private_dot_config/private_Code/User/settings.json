@@ -64,6 +64,22 @@
             ],
             "comments": "#707070"
         },
+        "[Dracula Theme]": {
+            "textMateRules": [
+                // {
+                //     "scope": "variable",
+                //     "settings": {
+                //         "foreground": "#ff5e5e"
+                //     }
+                // },
+                {
+                    "scope": "meta.function-call",
+                    "settings": {
+                        "foreground": "#50FA7B",
+                    }
+                }
+            ]
+        }
     },
     "editor.smoothScrolling": true,
     "settingsSync.ignoredExtensions": [
