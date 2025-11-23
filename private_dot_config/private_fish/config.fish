@@ -8,9 +8,9 @@ if status is-interactive
     alias lt "eza --color always --icons always --tree --level 2 --only-dirs --all"
     alias lsp "eza -l --all"
     alias cz chezmoi
+    alias clear 'reset ; commandline -f repaint'
     alias lg "git log --oneline"
     bind \er 'echo; echo; commandline -f repaint'
-    bind \cl 'reset ; commandline -f repaint'
     bind \cd 'exit'
     bind ctrl-alt-q 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint ; echo "Prosternez vous devant le grand poulpy, mascotte de la MP2I" | cowsay -f ~/.config/.assets/octopus.cow | lolcat'
     bind \cq 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint'
