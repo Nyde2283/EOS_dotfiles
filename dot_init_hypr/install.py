@@ -241,7 +241,7 @@ def nvidia_drivers_conf_func() -> int:
 nvidia_drivers_conf = Section(
     "NVIDIA drivers configuration",
     "Configure NVIDIA drivers (Only if you know what you are doing) ?",
-    nvidia_drivers_conf_func()
+    nvidia_drivers_conf_func
 )
 
 
