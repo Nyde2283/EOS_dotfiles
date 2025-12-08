@@ -1,69 +1,92 @@
 import functools
 import subprocess
+from typing import Self
 
 
-
-# yes_answers = ("", "Y", "y", "yes")
-
-# default_yes = False
-
-# sections = []
 
 error_packages: list[list[str]] = []
 
-def get_install_command(pacakge_manager: str):
-    def get_process(package: str):
-        return subprocess.Popen([pacakge_manager, '-Si', '--noconfirm', '--needed', package])
-    return get_process
 
-def install_packages(package_manager: str, packages: list[str]) -> int:
-    get_process = get_install_command(package_manager)
+
+# ---------------------------------------------------------------------------- #
+#                               INSTALL COMMANDS                               #
+# ---------------------------------------------------------------------------- #
+
+def install_packages(command: list[str], packages: list[str]) -> int:
+    def get_process(package: str):
+        return subprocess.Popen([*command, package])
     return_code = 0
 
     for package in packages:
+        print(f"\n🔁 Running '{' '.join(command)} {package}'...")
         install_process = get_process(package)
         curr_return_code = install_process.wait()
         if curr_return_code != 0:
             error_packages[-1].append(package)
         return_code |= curr_return_code
     return return_code
+
 
 def pacman_install(packages: list[str]) -> int:
     error_packages.append([])
-    return_code = install_packages('pacman', packages)
+    return_code = install_packages(['sudo', 'pacman', '-Si', '--noconfirm', '--needed'], packages)
+
     if return_code != 0:
-        print(f"\nPackages which ended with non-zero code : {error_packages[-1]}")
+        print(f"\n❌ Packages which ended with non-zero code : {error_packages[-1]}")
+    else:
+        print(f"\n✅ Pacman installation succeeded")
 
     return return_code
+
 
 def yay_install(packages: list[str]) -> int:
     error_packages.append([])
-    return_code = install_packages('yay', packages)
+    return_code = install_packages(['yay', '-Si', '--noconfirm', '--needed'], packages)
+
     if return_code != 0:
-        print(f"\nPackages which ended with non-zero code : {error_packages[-1]}")
+        print(f"\n❌ Packages which ended with non-zero code : {error_packages[-1]}")
+    else:
+        print(f"\n✅ Yay installation succeeded")
 
     return return_code
+
 
 def flatpak_install(packages: list[str]) -> int:
-    def get_process(package: str):
-        return subprocess.Popen(["flatpak", "info", package])
     error_packages.append([])
-    return_code = 0
-
-    for package in packages:
-        install_process = get_process(package)
-        curr_return_code = install_process.wait()
-        if curr_return_code != 0:
-            error_packages[-1].append(package)
-        return_code |= curr_return_code
+    return_code = install_packages(['flatpak', 'info'], packages)
 
     if return_code != 0:
-        print(f"\nPackages which ended with non-zero code : {error_packages[-1]}")
+        print(f"\n❌ Packages which ended with non-zero code : {error_packages[-1]}")
+    else:
+        print(f"\n✅ Flatpak installation succeeded")
 
     return return_code
+
+
+# ---------------------------------------------------------------------------- #
+#                               GENERAL COMMANDS                               #
+# ---------------------------------------------------------------------------- #
+
+def run_command(command: str) -> int:
+    split_command = command.split(' ')
+    print(f"\n🔁 Running '{command}'...")
+    process = subprocess.Popen(split_command)
+    return_code = process.wait()
+    if return_code != 0:
+        print(f"\n❌ Failed to run '{command}'")
+    else:
+        print(f"\n✅ Successfully run '{command}'")
+
+    return return_code
+
+
+# ---------------------------------------------------------------------------- #
+#                              SECTIONS MANAGEMENT                             #
+# ---------------------------------------------------------------------------- #
 
 def headerize(header: str) -> str:
     return f"\n{"-"*76}\n{header:^76}\n{"-"*76}"
+
 
 def flatten(l: list[list[str] | None]) -> list[str]:
     res = []
@@ -73,70 +96,69 @@ def flatten(l: list[list[str] | None]) -> list[str]:
 
     return res
 
+
+class Options:
+    def __init__(self, yes_opt: list[str], no_opt: list[str]):
+        self.yes_opt = yes_opt
+        self.no_opt = no_opt
+        self.all_opt = yes_opt + no_opt
+        for opt in self.all_opt:
+            if opt.isupper():
+                self.main = opt
+
+    def __str__(self):
+        result = "["
+        for opt in self.all_opt[:-1]:
+            result += f'{opt},'
+        result += f'{self.all_opt[-1]}]'
+
+        return result
+
+
 class Section:
 
-    yes_answers = ("", "Y", "y", "yes")
-    sections = []
-    error_packages: list[list[str]] = []
+    sections: list[Self] = []
 
-    def __init__(self, header: str, input_msg: str, run_func):
+    @classmethod
+    def ask_ignore_sections(clc):
+        for i, section in enumerate(clc.sections):
+            print(f"[{i}] {section.header}")
+        print(f"Ignore confirmation for sections ? [0-{len(clc.sections)-1}]")
+        ans = input("Format your input as 0 3 4 for (0, 3, 4) : ")
+        if ans == "":
+            confirmed_sections_index = []
+        else:
+            confirmed_sections_index = [int(a) for a in ans.split(" ")]
+
+        for i in confirmed_sections_index:
+            clc.sections[i].answer_default = True
+
+    def __init__(self, header: str, input_msg: str, run_func, options: Options = None):
         self.header = header
-        self.input_msg = input_msg
+        if options == None:
+            self.options = Options(['Y'], ['n'])
+        else:
+            self.options = options
+        self.input_msg = input_msg + f' {self.options} '
         self.run_func = run_func
-        self.default_to_yes = False
+        self.answer_default = False
         Section.sections.append(self)
 
     def run(self) -> int:
         print(headerize(self.header))
-        if self.default_to_yes:
-            ans = ""
+        if self.answer_default:
+            ans = self.options.main
             print(self.input_msg)
         else:
             ans = input(self.input_msg)
 
-        if ans not in Section.yes_answers:
+        if ans == '':
+            ans = self.options.main
+
+        if ans in self.options.no_opt:
             print(f"Skipping {self.header.lower()}")
             return 0
-
-        return self.run_func()
-
-
-# def build_section(header: str, input_msg: str):
-#     def build_section(func):
-#         @functools.wraps(func)
-#         def section(*args, **kwargs) -> int:
-#             print(headerize(header))
-#             if default_yes:
-#                 ans = ""
-#                 print(input_msg)
-#             else:
-#                 ans = input(input_msg)
-
-#             if ans not in yes_answers:
-#                 print(f"Skipping {header}")
-#                 return 0
-#             return func(*args, **kwargs)
-
-#         sections.append(section)
-#         return section
-#     return build_section
-
-def ignore_sections(sections: list[Section]) -> list[int]:
-    for i, section in enumerate(sections):
-        print(f"[{i}] {section.header}")
-    print("Ignore confirmation for sections ?")
-    ans = input("Format your input as 1-3 for (1, 2, 3) or 0 3 4 for (0, 3, 4) or 1-3 5 for (1, 2, 3, 5) : ")
-    sep_ans = ans.split(" ")
-    confirmed_sections = []
-
-    for sub_ans in sep_ans:
-        try:
-            dash_index = sub_ans.index('-')
-            a = int(sub_ans[:dash_index])
-            b = int(sub_ans[dash_index+1:])
-            confirmed_sections.extend(range(a, b+1))
-        except ValueError:
-            confirmed_sections.append(int(sub_ans))
-
-    for i in confirmed_sections:
-        sections[i].default_to_yes = True
+        elif ans in self.options.yes_opt:
+            return self.run_func()
+        else:
+            self.run()

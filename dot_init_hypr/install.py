@@ -1,5 +1,5 @@
-import subprocess
 from utils import *
+import config
 
 
 
@@ -7,272 +7,270 @@ from utils import *
 #                                   SECTIONS                                   #
 # ---------------------------------------------------------------------------- #
 
+# ---------------------------------- UPDATE ---------------------------------- #
+
 def update_func() -> int:
-    print("Running update...")
     return 0
+    return_code = run_command('yay -Syu')
+    return return_code
 update = Section(
     "Updates",
-    "Run system upgrade ? [Y,n] ",
+    "Run system upgrade ?",
     update_func
 )
 
-# @build_section(
-#     "Font installation",
-#     "Install fonts ? [Y,n] "
-# )
-def font_install_func() -> int:
-    fonts = [
-        "ttf-cascadia-code-nerd",
-        "ttf-cascadia-mono-nerd",
-        "ttf-fira-code",
-        "ttf-fira-mono",
-        "ttf-fira-sans",
-        "ttf-firacode-nerd",
-        "ttf-iosevka-nerd",
-        "ttf-iosevkaterm-nerd",
-        "ttf-jetbrains-mono-nerd",
-        "ttf-jetbrains-mono",
-        "ttf-nerd-fonts-symbols",
-        "ttf-nerd-fonts-symbols",
-        "ttf-nerd-fonts-symbols-mono"
-    ]
 
-    return pacman_install(fonts)
+# ----------------------------------- FONTS ---------------------------------- #
+
+def font_install_func() -> int:
+    fonts = config.fonts
+
+    return_code = pacman_install(fonts)
+    return return_code
 font_install = Section(
     "Font installation",
-    "Install fonts ? [Y,n] ",
+    "Install fonts ?",
     font_install_func
 )
 
-@build_section(
-    "Minimal installation",
-    "Install minimal software config ? [Y,n] "
-)
+
+# ------------------------------ MINIMAL INSTALL ----------------------------- #
+
 def minimal_install_func() -> int:
-    packages = [
-        "hyprland",
-        "sddm",
-        "uwsm",
-        "kitty",
-        "fish",
-        "micro"
-    ]
+    packages = config.minimal_packages
 
-    return pacman_install(packages)
+    return_code = pacman_install(packages)
+    return return_code
 minimal_install = Section(
-
+    "Minimal installation",
+    "Install minimal software config ?",
+    minimal_install_func
 )
 
-@build_section(
-    "SHELL configuration",
-    "Configure default shell to fish ? [Y,n] "
-)
-def shell_config() -> int:
-    print("Configuring...")
+
+# ------------------------------- SHELL CONFIG ------------------------------- #
+
+def shell_config_func() -> int:
     return 0
+    return_code = run_command('sudo chsh -s /usr/bin/fish')
+    print("\
+Veillez configurer les variables suivantes dans l'éditeur qui va apparaitre :\
+BROWSER=zen-browser\
+EDITOR=micro\
+SHELL=/usr/bin/fish\
+")
+    input("Press any key to continue...")
 
-@build_section(
-    "Compatibilty layers",
-    "Install compatibility layers ? [Y,n] "
+    return_code |= run_command('micro /etc/environment')
+    return_code |= run_command('~/.init_hypr/fish_functions')
+
+    return return_code
+shell_config = Section(
+    "SHELL configuration",
+    "Configure default shell to fish ?",
+    shell_config_func
 )
-def compatibilty_layers() -> int:
-    packages = [
-        "xdg-desktop-portal-hyprland",
-        "xdg-desktop-portal-gtk",
-        "hyprpolkitagent",
-        "qt5-wayland",
-        "qt6-wayland"
-    ]
+
+
+# ------------------------------- COMPATIBILITY ------------------------------ #
+
+def compatibilty_layers_func() -> int:
+    packages = config.compatibility_packages
 
     return pacman_install(packages)
+compatibilty_layers = Section(
+    "Compatibilty layers",
+    "Install compatibility layers ?",
+    compatibilty_layers_func
+)
 
-@build_section(
+
+# --------------------------- SYSTEMD CONFIGURATION -------------------------- #
+
+def systemd_config_func() -> int:
+    return 0
+    # Enable services
+    return_code = run_command('sudo systemctl enable sddm.service')                 # Login service
+    return_code |= run_command('sudo systemctl enable bluetooth.service')           # Bluetooth service
+    return_code |= run_command('systemctl --user enable hyprpolkitagent.service')   # GUI sudo prompt
+
+    # Enable numlock in sddm
+    return_code |= run_command('sudo touch /etc/sddm.conf')
+    return_code |= run_command('sudo bash -c \'echo "[General]\
+Numlock=on\
+[Autologin]\
+User=nyde\
+Session=hyprland-uwsm.desktop" > /etc/sddm.conf\'')
+
+    return return_code
+systemd_config = Section(
     "Systemd configuration",
-    "Configure systemd ? [Y,n] "
+    "Configure systemd ?",
+    systemd_config_func
 )
-def systemd_config() -> int:
-    print("Configuring...")
+
+
+# def fix_g502_func() -> int:
+#     return 0
+#     return_code = run_command('sudo bash -c \'echo "[DisableThatShitHighResolution]\
+# MatchName=*\
+# AttrEventCode=-REL_WHEEL_HI_RES;-REL_HWHEEL_HI_RES;" > /etc/libinput/local-overrides.quirks\'')
+#     return_code |= run_command('sudo bash -c \'echo "blacklist hid_logitech_hidpp" > /etc/modprobe.d/blacklist.conf\'')
+
+#     return return_code
+# fix_g502 = Section(
+#     "G502 scrolling fix",
+#     "Fix Logitech G502 mouse scrolling issues ?",
+#     fix_g502_func
+# )
+
+
+# ----------------------- GENERAL PACKAGE INSTALLATION ----------------------- #
+
+def general_packages_install_func() -> int:
+    pacman_packages = config.general_pacman_packages
+    yay_packages = config.general_yay_packages
+    flatpak_packages = config.general_flatpak_packages
+
+    print("\
+Les package installés avec yay peuvent être long à installer (notamment ags-hyprpanel qui prend un temps fou).\
+Avant de partir du principe que l'installation est bloquée ou boucle dans le vide, attendez au moins 15 minutes.")
+    input("Press any key to continue...")
+
+    return_code = pacman_install(pacman_packages)
+    return_code |= yay_install(yay_packages)
+    return_code |= flatpak_install(flatpak_packages)
+    # TODO : Décommenter
     return 0
-
-@build_section(
-    "G502 scrolling fix",
-    "Fix Logitech G502 mouse scrolling issues ? [Y,n] "
-
-)
-def fix_g502() -> int:
-    print("Fixing...")
-    return 0
-
-@build_section(
+    return_code |= run_command('sudo cp org.gnome.Calculator.desktop /usr/share/applications/')   # Put desktop entry in correct directory
+    return return_code
+general_packages_install = Section(
     "General packages installation",
-    "Install all useful softwares ? [Y,n] "
+    "Install all useful softwares ?",
+    general_packages_install_func
 )
-def general_packages_install() -> int:
-    pacman_packages = [
-        "nautilus",
-        "nautilus-image-converter",
-        "cliphist",
-        "cowsay",
-        "lolcat",
-        "btop",
-        "mission-center",
-        "zathura",
-        "zathura-pdf-poppler",
-        "pdfarranger",
-        "evince",
-        "eza",
-        "bluetui",
-        "hyprpicker",
-        "hyprlock",
-        "bat",
-        "fd",
-        "imv",
-        "loupe",
-        "vlc",
-        "vlc-plugin-ffmpeg",
-        "wev",
-        "udiskie",
-        "playerctl",
-        "baobab",
-        "flatpak",
-        "ydotool",
-        "brightnessctl",
-        "partitionmanager",
-        "cups",
-        "system-config-printer",
-        "foot",
-        "chafa",
-        "network-manager-applet",
-        "thunderbird",
-        "yazi",
-        "chromium",
-        "hyprpaper",
-        "typst",
-        "libreoffice-fresh",
-        "signal-desktop"
-    ]
-    yay_packages = [
-        "nautilus-admin-gtk4",
-        "nautilus-open-any-terminal",
-        "zen-browser-bin",
-        "ags-hyprpanel-git",
-        "tofi",
-        "rofimoji-git",
-        "hypridle",
-        "wlogout",
-        "grim-hyprland-git",
-        "grimblast-git",
-        "hyprls-git",
-        "grub-customizer",
-        "xorg-xhost",
-        "ookla-speedtest-bin",
-        "ente-auth-bin",
-        "samsung-unified-driver",
-        "freedownloadmanager",
-        "pyprland",
-        "anki-bin",
-        "informant",
-        "github-desktop-plus-bin",
-        "visual-studio-code-bin",
-        "vesktop-bin",
-        "spotify",
-        "systemd-numlockontty"
-    ]
-    flatpak_packages = [
-        "org.gnome.Calculator",
-        "org.kiwix.desktop"
-    ]
 
-    pacman_return_code = pacman_install(pacman_packages)
-    yay_return_code = yay_install(yay_packages)
-    flatpak_return_code = flatpak_install(flatpak_packages)
-    return pacman_return_code | yay_return_code | flatpak_return_code
 
-@build_section(
+# ---------------------------------- RICING ---------------------------------- #
+
+def rice_system_func() -> int:
+    pacman_packages = config.rice_pacman_packages
+    yay_packages = config.rice_yay_packages
+
+    return_code = pacman_install(pacman_packages)
+    return_code |= yay_install(yay_packages)
+    return 0
+    return_code |= run_command('gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"')
+    return_code |= run_command('gsettings set org.gnome.desktop.interface color-scheme \'prefer-dark\'')
+    return return_code
+rice_system = Section(
     "Ricing configuration",
-    "Rice the system ? [Y,n] "
+    "Rice the system ?",
+    rice_system_func
 )
-def rice_system() -> int:
-    pacman_packages = [
-        "arc-gtk-theme-eos",
-        "fastfetch"
-    ]
-    yay_packages = [
-        "pipes.sh",
-        "oh-my-posh-bin"
-    ]
 
-    pacman_return_code = pacman_install(pacman_packages)
-    yay_return_code = yay_install(yay_packages)
-    return pacman_return_code | yay_return_code
 
-@build_section(
+# --------------------------- GROUPS CONFIGURATION --------------------------- #
+
+def groups_config_func() -> int:
+    return 0
+    return_code = run_command('sudo usermod -aG lp $USER')   # Add user to printing group
+    return return_code
+groups_config = Section(
     "Groups configuration",
-    "Configure groups (relevant to use printers) ? [Y,n] "
+    "Configure groups (relevant to use printers) ?",
+    groups_config_func
 )
-def groups_config() -> int:
-    print("Configuring...")
-    return 0
 
-@build_section(
+
+# ----------------------- SYSTEMD GENERAL CONFIGURATION ---------------------- #
+
+def systemd_general_config_func() -> int:
+    return 0
+    return_code |= run_command('sudo systemctl enable numLockOnTty.service')        # Turn on numlock on tty
+    return_code |= run_command('sudo systemctl enable cups')                        # Enable printer system
+    return_code |= run_command('systemctl --user enable hypridle.service')          # Hidle service
+    return_code |= run_command('systemctl --user enable --now hyprpaper.service')   # Wallpaper service
+
+    return return_code
+systemd_general_config = Section(
     "Systemd configuration for general softwares",
-    "Configure systemd ? [Y,n] "
+    "Configure systemd ?",
+    systemd_config_func
 )
-def systemd_general_config() -> int:
-    print("Configuring general systemd...")
-    return 0
 
-@build_section(
+
+# ----------------------------- XDG CONFIGURATION ---------------------------- #
+
+def xdg_configuration_func() -> int:
+    return 0
+    return_code = run_command('sudo ln -s /usr/bin/kitty /usr/bin/xdg-terminal-exec')           # Open TUI apps (Btop, Micro, ...) inside Kitty instead of Xterm
+    return_code |= run_command('sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal')             # Nautilus 'Open terminal here' option open Kitty instead of Xterm
+    return_code |= run_command('xdg-mime default org.gnome.Nautilus.desktop inode/directory')   # Set Nautilus as default file manager
+
+    return return_code
+xdg_configuration = Section(
     "XDG configuration",
-    "Configure XDG settings ? [Y,n] "
+    "Configure XDG settings ?",
+    xdg_configuration_func
 )
-def xdg_configuration() -> int:
-    print("Configuring XDG...")
-    return 0
 
-@build_section(
+
+# --------------------------- YDOTOOL CONFIGURATION -------------------------- #
+
+def ydotool_config_func() -> int:
+    return 0
+    return_code = run_command('sudo chmod +s /usr/bin/ydotoold')
+    return_code |= run_command('sudo chmod +s /usr/bin/ydotool')
+
+    return return_code
+ydotool_config = Section(
     "Ydotool configuration",
-    "Allow to run ydotool in sudo mode by default ? [Y,n] "
+    "Allow to run ydotool in sudo mode by default ?",
+    ydotool_config_func
 )
-def ydotool_config() -> int:
-    print("Autorizing")
-    return 0
 
-@build_section(
-    "Working dirs",
-    "Create working directories ? [Y,n] "
-)
-def work_dirs() -> int:
+
+# ---------------------------- WORKING DIRECTORIES --------------------------- #
+
+def work_dirs_func() -> int:
     print("Creating directories...")
     return 0
+    return_code = run_command('mkdir ~/Documents/dev')
+work_dirs = Section(
+    "Working dirs",
+    "Create working directories ?",
+    work_dirs_func
+)
+
+
+# ----------------------- NVIDIA DRIVERS CONFIGURATION ----------------------- #
+
+def nvidia_drivers_conf_func() -> int:
+    return 0
+    return_code = run_command('sudo pacman -Rns nvidia')   # Remove Proprietary Drivers because I'm with a RTX 20xx
+    return_code |= pacman_install(['nvidia-open'])         # Install Open Drivers
+nvidia_drivers_conf = Section(
+    "NVIDIA drivers configuration",
+    "Configure NVIDIA drivers (Only if you know what you are doing) ?",
+    nvidia_drivers_conf_func()
+)
 
 
 
 if __name__ == "__main__":
-    ans = input("Do you want to skip confirmations ? [Y,n] ")
-    if ans in yes_answers:
-        set_default_to_yes()
+    Section.ask_ignore_sections()
 
     try:
-        for section in sections:
-            print(section())
+        for section in Section.sections:
+            section.run()
+
+        print("\
+Pensez à changer le thème de GRUB avec grub-customizer.\
+Pour ajouter un dual boot, exécutez sudo os-prober avant.\
+Si vous avez un dual boot Windows, exécutez timedatectl set-local-rtc 1 --adjust-system-clock pour régler le problème du différentiel d'heure entre Windows et Linux\
+Sur Zen Browser, pour enlever la bordure un peu chiante il faut set la variable zen.theme.content-element-separation à 0.")
     except:
         pass
 
     print(f"\nPackages which ended with non-zero code : {flatten(error_packages)}")
-
-
-
-
-
-
-"""
-from time import sleep
-# process = subprocess.Popen(['sleep', '0.2'])
-process = subprocess.Popen(['echo', 'exit(2)'], stdout=subprocess.PIPE)
-process.wait()
-# sleep(1)
-proc = subprocess.Popen(['python'], stdin=process.stdout)
-sleep(0.5)
-print(proc.wait())
-"""

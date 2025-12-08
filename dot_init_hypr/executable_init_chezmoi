@@ -1,7 +1,5 @@
-sudo pacman -S --noconfirmation chezmoi &&
+sudo pacman -S --noconfirm chezmoi &&
 chezmoi init https://github.com/Nyde2283/EOS_dotfiles &&
 chezmoi apply &&
 cp ~/.config/cz_config ~/.config/chezmoi/ &&
-mv ~/.config/chezmoi/cz_config ~/.config/chezmoi/chezmoi.toml &&
-
-~/.init_hypr/init_hyprland
+mv ~/.config/chezmoi/cz_config ~/.config/chezmoi/chezmoi.toml
