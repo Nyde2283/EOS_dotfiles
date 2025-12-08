@@ -51,11 +51,11 @@ minimal_install = Section(
 
 def shell_config_func() -> int:
     return_code = run_command('sudo chsh -s /usr/bin/fish')
-    print("\
-Veillez configurer les variables suivantes dans l'éditeur qui va apparaitre :\
-BROWSER=zen-browser\
-EDITOR=micro\
-SHELL=/usr/bin/fish\
+    print("\n\
+Veillez configurer les variables suivantes dans l'éditeur qui va apparaitre :\n\
+BROWSER=zen-browser\n\
+EDITOR=micro\n\
+SHELL=/usr/bin/fish\n\
 ")
     input("Press any key to continue...")
 
@@ -93,10 +93,10 @@ def systemd_config_func() -> int:
 
     # Enable numlock in sddm
     return_code |= run_command('sudo touch /etc/sddm.conf')
-    return_code |= run_command('sudo bash -c \'echo "[General]\
-Numlock=on\
-[Autologin]\
-User=nyde\
+    return_code |= run_command('sudo bash -c \'echo "[General]\n\
+Numlock=on\n\
+[Autologin]\n\
+User=nyde\n\
 Session=hyprland-uwsm.desktop" > /etc/sddm.conf\'')
 
     return return_code
@@ -129,8 +129,8 @@ def general_packages_install_func() -> int:
     yay_packages = config.general_yay_packages
     flatpak_packages = config.general_flatpak_packages
 
-    print("\
-Les package installés avec yay peuvent être long à installer (notamment ags-hyprpanel qui prend un temps fou).\
+    print("\n\
+Les package installés avec yay peuvent être long à installer (notamment ags-hyprpanel qui prend un temps fou).\n\
 Avant de partir du principe que l'installation est bloquée ou boucle dans le vide, attendez au moins 15 minutes.")
     input("Press any key to continue...")
 
@@ -253,10 +253,10 @@ if __name__ == "__main__":
         for section in Section.sections:
             section.run()
 
-        print("\
-Pensez à changer le thème de GRUB avec grub-customizer.\
-Pour ajouter un dual boot, exécutez sudo os-prober avant.\
-Si vous avez un dual boot Windows, exécutez timedatectl set-local-rtc 1 --adjust-system-clock pour régler le problème du différentiel d'heure entre Windows et Linux\
+        print("\n\
+Pensez à changer le thème de GRUB avec grub-customizer.\n\
+Pour ajouter un dual boot, exécutez sudo os-prober avant.\n\
+Si vous avez un dual boot Windows, exécutez timedatectl set-local-rtc 1 --adjust-system-clock pour régler le problème du différentiel d'heure entre Windows et Linux\n\
 Sur Zen Browser, pour enlever la bordure un peu chiante il faut set la variable zen.theme.content-element-separation à 0.")
     except:
         pass
