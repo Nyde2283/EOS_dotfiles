@@ -31,7 +31,7 @@
             "sideBarSectionHeader.border": "#2b2b2b",
             "activityBar.foreground": "#40a6ff",
             "scrollbar.shadow": "#000000e5",
-        }
+        },
     },
     "editor.stickyScroll.enabled": true,
     "editor.tokenColorCustomizations": {
@@ -79,6 +79,13 @@
                     }
                 }
             ]
+        }
+    },
+    "editor.semanticTokenColorCustomizations": {
+        "[Dracula Theme]": {
+            "rules": {
+                "module": "#ffffff6f"
+            }
         }
     },
     "editor.smoothScrolling": true,
@@ -193,4 +200,7 @@
         "*": false
     },
     "workbench.colorTheme": "Dracula Theme",
+    "gitTreeCompare.showCheckboxes": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.hideUnchangedRegions.contextLineCount": 5,
 }
