@@ -1,4 +1,3 @@
-import functools
 import subprocess
 from typing import Self
 
@@ -29,7 +28,7 @@ def install_packages(command: list[str], packages: list[str]) -> int:
 
 def pacman_install(packages: list[str]) -> int:
     error_packages.append([])
-    return_code = install_packages(['sudo', 'pacman', '-Si', '--noconfirm', '--needed'], packages)
+    return_code = install_packages(['sudo', 'pacman', '-S', '--noconfirm', '--needed'], packages)
 
     if return_code != 0:
         print(f"\n❌ Packages which ended with non-zero code : {error_packages[-1]}")
@@ -41,7 +40,7 @@ def pacman_install(packages: list[str]) -> int:
 
 def yay_install(packages: list[str]) -> int:
     error_packages.append([])
-    return_code = install_packages(['yay', '-Si', '--noconfirm', '--needed'], packages)
+    return_code = install_packages(['yay', '-S', '--noconfirm', '--needed'], packages)
 
     if return_code != 0:
         print(f"\n❌ Packages which ended with non-zero code : {error_packages[-1]}")
@@ -53,7 +52,7 @@ def yay_install(packages: list[str]) -> int:
 
 def flatpak_install(packages: list[str]) -> int:
     error_packages.append([])
-    return_code = install_packages(['flatpak', 'info'], packages)
+    return_code = install_packages(['flatpak', 'install', '-y'], packages)
 
     if return_code != 0:
         print(f"\n❌ Packages which ended with non-zero code : {error_packages[-1]}")
