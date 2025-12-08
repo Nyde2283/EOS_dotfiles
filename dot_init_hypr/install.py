@@ -10,7 +10,6 @@ import config
 # ---------------------------------- UPDATE ---------------------------------- #
 
 def update_func() -> int:
-    return 0
     return_code = run_command('yay -Syu')
     return return_code
 update = Section(
@@ -51,7 +50,6 @@ minimal_install = Section(
 # ------------------------------- SHELL CONFIG ------------------------------- #
 
 def shell_config_func() -> int:
-    return 0
     return_code = run_command('sudo chsh -s /usr/bin/fish')
     print("\
 Veillez configurer les variables suivantes dans l'éditeur qui va apparaitre :\
@@ -88,7 +86,6 @@ compatibilty_layers = Section(
 # --------------------------- SYSTEMD CONFIGURATION -------------------------- #
 
 def systemd_config_func() -> int:
-    return 0
     # Enable services
     return_code = run_command('sudo systemctl enable sddm.service')                 # Login service
     return_code |= run_command('sudo systemctl enable bluetooth.service')           # Bluetooth service
@@ -140,8 +137,6 @@ Avant de partir du principe que l'installation est bloquée ou boucle dans le vi
     return_code = pacman_install(pacman_packages)
     return_code |= yay_install(yay_packages)
     return_code |= flatpak_install(flatpak_packages)
-    # TODO : Décommenter
-    return 0
     return_code |= run_command('sudo cp org.gnome.Calculator.desktop /usr/share/applications/')   # Put desktop entry in correct directory
     return return_code
 general_packages_install = Section(
@@ -159,7 +154,6 @@ def rice_system_func() -> int:
 
     return_code = pacman_install(pacman_packages)
     return_code |= yay_install(yay_packages)
-    return 0
     return_code |= run_command('gsettings set org.gnome.desktop.interface gtk-theme "Arc-Dark"')
     return_code |= run_command('gsettings set org.gnome.desktop.interface color-scheme \'prefer-dark\'')
     return return_code
@@ -173,7 +167,6 @@ rice_system = Section(
 # --------------------------- GROUPS CONFIGURATION --------------------------- #
 
 def groups_config_func() -> int:
-    return 0
     return_code = run_command('sudo usermod -aG lp $USER')   # Add user to printing group
     return return_code
 groups_config = Section(
@@ -186,7 +179,6 @@ groups_config = Section(
 # ----------------------- SYSTEMD GENERAL CONFIGURATION ---------------------- #
 
 def systemd_general_config_func() -> int:
-    return 0
     return_code |= run_command('sudo systemctl enable numLockOnTty.service')        # Turn on numlock on tty
     return_code |= run_command('sudo systemctl enable cups')                        # Enable printer system
     return_code |= run_command('systemctl --user enable hypridle.service')          # Hidle service
@@ -203,7 +195,6 @@ systemd_general_config = Section(
 # ----------------------------- XDG CONFIGURATION ---------------------------- #
 
 def xdg_configuration_func() -> int:
-    return 0
     return_code = run_command('sudo ln -s /usr/bin/kitty /usr/bin/xdg-terminal-exec')           # Open TUI apps (Btop, Micro, ...) inside Kitty instead of Xterm
     return_code |= run_command('sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal')             # Nautilus 'Open terminal here' option open Kitty instead of Xterm
     return_code |= run_command('xdg-mime default org.gnome.Nautilus.desktop inode/directory')   # Set Nautilus as default file manager
@@ -219,7 +210,6 @@ xdg_configuration = Section(
 # --------------------------- YDOTOOL CONFIGURATION -------------------------- #
 
 def ydotool_config_func() -> int:
-    return 0
     return_code = run_command('sudo chmod +s /usr/bin/ydotoold')
     return_code |= run_command('sudo chmod +s /usr/bin/ydotool')
 
@@ -235,7 +225,6 @@ ydotool_config = Section(
 
 def work_dirs_func() -> int:
     print("Creating directories...")
-    return 0
     return_code = run_command('mkdir ~/Documents/dev')
 work_dirs = Section(
     "Working dirs",
@@ -247,7 +236,6 @@ work_dirs = Section(
 # ----------------------- NVIDIA DRIVERS CONFIGURATION ----------------------- #
 
 def nvidia_drivers_conf_func() -> int:
-    return 0
     return_code = run_command('sudo pacman -Rns nvidia')   # Remove Proprietary Drivers because I'm with a RTX 20xx
     return_code |= pacman_install(['nvidia-open'])         # Install Open Drivers
 nvidia_drivers_conf = Section(
