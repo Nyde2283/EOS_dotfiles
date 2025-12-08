@@ -94,10 +94,7 @@ def systemd_config_func() -> int:
     # Enable numlock in sddm
     return_code |= run_command('sudo touch /etc/sddm.conf')
     return_code |= run_command('sudo bash -c \'echo "[General]\n\
-Numlock=on\n\
-[Autologin]\n\
-User=nyde\n\
-Session=hyprland-uwsm.desktop" > /etc/sddm.conf\'')
+Numlock=on" > /etc/sddm.conf\'')
 
     return return_code
 systemd_config = Section(
@@ -188,7 +185,7 @@ def systemd_general_config_func() -> int:
 systemd_general_config = Section(
     "Systemd configuration for general softwares",
     "Configure systemd ?",
-    systemd_config_func
+    systemd_general_config_func
 )
 
 
