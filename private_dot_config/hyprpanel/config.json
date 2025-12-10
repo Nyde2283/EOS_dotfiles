@@ -119,7 +119,7 @@
     }
   },
   "theme.tooltip.scaling": 100,
-  "scalingPriority": "gdk",
+  "scalingPriority": "hyprland",
   "theme.bar.menus.enableShadow": false,
   "menus.transitionTime": 0,
   "theme.bar.transparent": true,
@@ -136,7 +136,7 @@
   "bar.customModules.hypridle.label": false,
   "bar.workspaces.workspaces": 1,
   "bar.workspaces.spacing": 1.5,
-  "menus.dashboard.powermenu.avatar.image": "~/Pictures/Persos/IR_nyde.jpg",
+  "menus.dashboard.powermenu.avatar.image": "~/.config/.assets/IR_nyde.jpg",
   "bar.bluetooth.label": false,
   "bar.workspaces.ignored": "-",
   "bar.workspaces.applicationIconMap": {
