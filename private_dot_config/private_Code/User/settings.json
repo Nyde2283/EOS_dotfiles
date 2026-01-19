@@ -178,7 +178,7 @@
     "window.density.editorTabHeight": "compact",
     "zenMode.centerLayout": false,
     "zenMode.restore": false,
-    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.typeCheckingMode": "off",
     "files.trimTrailingWhitespace": true,
     "[markdown]": {
         "files.trimTrailingWhitespace": false
@@ -195,12 +195,17 @@
     "files.trimFinalNewlines": true,
     "editor.minimap.enabled": false,
     "window.customMenuBarAltFocus": false,
-    "workbench.activityBar.location": "hidden",
     "github.copilot.enable": {
         "*": false
     },
     "workbench.colorTheme": "Dracula Theme",
     "gitTreeCompare.showCheckboxes": true,
-    "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.hideUnchangedRegions.contextLineCount": 5,
+    "git.blame.editorDecoration.enabled": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "git.blame.statusBarItem.enabled": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "workbench.activityBar.location": "hidden",
+    "chat.editing.confirmEditRequestRemoval": false,
+    "editor.selectionClipboard": false,
 }
