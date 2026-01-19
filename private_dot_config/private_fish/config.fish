@@ -23,6 +23,5 @@ if status is-interactive
     # bind ctrl-alt-c "fish_search_all_home; reload"
     bind \ei "fish_insert"
     source ~/.config/.assets/scripts/git_fzf.fish
-    git_fzf_key_bindings
     oh-my-posh init fish --config "~/.config/.assets/unicorn.omp.json" | source
 end
