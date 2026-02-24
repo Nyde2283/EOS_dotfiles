@@ -209,7 +209,7 @@
             "enabled": false
         },
         "ForceOwnerCrown": {
-            "enabled": false
+            "enabled": true
         },
         "FriendInvites": {
             "enabled": false
@@ -248,7 +248,8 @@
             "enabled": false
         },
         "ImplicitRelationships": {
-            "enabled": true
+            "enabled": true,
+            "sortByAffinity": true
         },
         "InvisibleChat": {
             "enabled": false,
@@ -570,7 +571,8 @@
             "enabled": true
         },
         "VolumeBooster": {
-            "enabled": false
+            "enabled": true,
+            "multiplier": 1
         },
         "WebKeybinds": {
             "enabled": true
@@ -612,6 +614,9 @@
         },
         "ImageFilename": {
             "enabled": false
+        },
+        "MoreQuickReactions": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -624,6 +629,10 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1756647518053
+        "settingsSyncVersion": 1770133901475
+    },
+    "uiElements": {
+        "chatBarButtons": {},
+        "messagePopoverButtons": {}
     }
 }

@@ -11,5 +11,7 @@
     "customTitleBar": false,
     "clickTrayToShowHide": true,
     "disableSmoothScroll": false,
-    "splashColor": "rgb(239, 239, 240)"
+    "splashColor": "rgb(239, 239, 241)",
+    "splashPixelated": true,
+    "splashBackground": "rgb(18, 18, 20)"
 }
