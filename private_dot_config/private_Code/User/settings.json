@@ -205,7 +205,7 @@
     "github.copilot.nextEditSuggestions.enabled": true,
     "git.blame.statusBarItem.enabled": true,
     "diffEditor.hideUnchangedRegions.enabled": true,
-    "workbench.activityBar.location": "hidden",
     "chat.editing.confirmEditRequestRemoval": false,
     "editor.selectionClipboard": false,
+    "workbench.activityBar.location": "hidden",
 }
