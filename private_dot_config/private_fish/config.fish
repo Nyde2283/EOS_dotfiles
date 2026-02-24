@@ -14,16 +14,16 @@ if status is-interactive
     alias v nvim
     alias c "clang -Wall -Wextra -std=c99 -fsanitize=address -g"
     bind \er 'echo; echo; commandline -f repaint'
-    bind \cd 'exit'
+    bind \cd exit
     bind ctrl-alt-q 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint ; echo "Prosternez vous devant le grand poulpy, mascotte de la MP2I" | cowsay -f ~/.config/.assets/octopus.cow | lolcat'
     bind \cq 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint'
-    bind \ea 'fish_list_all_current_token'
-    bind \et 'fish_list_tree_current_token'
+    bind \ea fish_list_all_current_token
+    bind \et fish_list_tree_current_token
     bind \cf "fish_search; reload"
     bind \ef "fish_search_all; reload"
     bind \ec "fish_search_all_home; reload"
     # bind ctrl-alt-c "fish_search_all_home; reload"
-    bind \ei "fish_insert"
+    bind \ei fish_insert
     source ~/.config/.assets/scripts/git_fzf.fish
     oh-my-posh init fish --config "~/.config/.assets/unicorn.omp.json" | source
 end
