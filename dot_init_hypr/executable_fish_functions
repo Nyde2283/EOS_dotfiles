@@ -7,7 +7,9 @@ end
 funcsave reload
 
 function op
-    nohup xdg-open $argv > /dev/null 2>&1 &
+    for arg in $argv
+        nohup xdg-open $arg > /dev/null 2>&1 &
+    end
 end
 funcsave op
 
