@@ -33,3 +33,7 @@
 	gpgSign = true
 [tag]
 	gpgSign = true
+[alias]
+	ss = status -s
+	ca = commit -am
+	cm = commit -m
