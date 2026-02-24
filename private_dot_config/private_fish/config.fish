@@ -12,7 +12,8 @@ if status is-interactive
     alias lg "git log --oneline"
     alias venv "source .venv/bin/activate.fish"
     alias v nvim
-    alias c "clang -Wall -Wextra -std=c99 -fsanitize=address -g"
+    alias co "code ."
+    alias c "clang -Wall -Wextra -std=c99 -fsanitize=address -g -pedantic"
     bind \er 'echo; echo; commandline -f repaint'
     bind \cd exit
     bind ctrl-alt-q 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint ; echo "Prosternez vous devant le grand poulpy, mascotte de la MP2I" | cowsay -f ~/.config/.assets/octopus.cow | lolcat'
