@@ -1,7 +1,0 @@
-#!/bin/bash
-active_window=$(hyprctl -j activewindow)
-window_address=$(echo "$active_window" | jq -r '.address')
-ydotool key 125:1 105:1 105:0 125:0
-hyprctl dispatch focuswindow "address:$window_address"
-ydotool key 125:1 106:1 106:0 125:0
-hyprctl dispatch focuswindow "address:$window_address"
