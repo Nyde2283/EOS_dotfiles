@@ -1,14 +1,12 @@
 #!/bin/bash
-text=$(cliphist list | tofi -c ~/.config/tofi/conf | cliphist decode)
+text=$(cliphist list | tofi -c ~/.config/tofi/conf | cliphist decode | tee >(wl-copy))
 if [ "$text" != "" ]; then
-    echo "$text" | wl-copy
     active_window=$(hyprctl -j activewindow)
-    window_class=$(echo "$active_window" | jq -r '.class')
-    ydotool key 29:1 47:1 47:0 29:0
-    # if [ "$window_class" = "kitty" ]; then
-    #     hyprctl dispatch sendshortcut "CTRL SHIFT, V,"
-    # else
-    #     hyprctl dispatch sendshortcut "CTRL, V,"
-    # fi
+    window_title=$(echo "$active_window" | jq -r '.title')
+    if [[ "$window_title" =~ ^v($| .*) ]]; then
+        ydotool key 1:1 1:0 25:1 25:0
+    else
+        ydotool key 29:1 47:1 47:0 29:0
+    fi
 fi
 exit
