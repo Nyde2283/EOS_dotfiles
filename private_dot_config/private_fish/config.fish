@@ -23,6 +23,7 @@ if status is-interactive
     bind \cf "fish_search; reload"
     bind \ef "fish_search_all; reload"
     bind \ec "fish_search_all_home; reload"
+    bind ctrl-shift-n "kitty --detach"
     # bind ctrl-alt-c "fish_search_all_home; reload"
     bind \ei fish_insert
     source ~/.config/.assets/scripts/git_fzf.fish
