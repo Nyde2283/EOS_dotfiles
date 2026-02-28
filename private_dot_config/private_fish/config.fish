@@ -15,6 +15,7 @@ if status is-interactive
     alias co "code ."
     alias c "clang -Wall -Wextra -std=c99 -fsanitize=address -g -pedantic"
     alias yu "yay --noconfirm"
+    bind \er 'source ~/.config/fish/config.fish ; commandline -f repaint'
     bind \cd exit
     bind ctrl-alt-q 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint ; echo "Prosternez vous devant le grand poulpy, mascotte de la MP2I" | cowsay -f ~/.config/.assets/octopus.cow | lolcat'
     bind \cq 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint'
