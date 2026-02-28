@@ -14,7 +14,7 @@ if status is-interactive
     alias v nvim
     alias co "code ."
     alias c "clang -Wall -Wextra -std=c99 -fsanitize=address -g -pedantic"
-    bind \er 'echo; echo; commandline -f repaint'
+    alias yu "yay --noconfirm"
     bind \cd exit
     bind ctrl-alt-q 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint ; echo "Prosternez vous devant le grand poulpy, mascotte de la MP2I" | cowsay -f ~/.config/.assets/octopus.cow | lolcat'
     bind \cq 'reset ; source ~/.config/fish/config.fish ; commandline -f repaint'
